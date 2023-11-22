@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Dashboard</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -21,38 +21,26 @@
     <ul class="menu">
       <li class="active">
         <a href="#">
-          <i class="fas fa-tachometer-alt"></i>
+          <i class="fas fa-home"></i>
           <span>Dashboard</span>
         </a>
       </li>
       <li>
         <a href="#">
           <i class="fas fa-user"></i>
-          <span>Profile</span>
+          <span>Peserta Magang</span>
         </a>
       </li>
       <li>
         <a href="#">
           <i class="fas fa-chart-bar"></i>
-          <span>Statistics</span>
+          <span>Absen</span>
         </a>
       </li>
       <li>
         <a href="#">
-          <i class="fas fa-briefcase"></i>
-          <span>Careers</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fas fa-question-circle"></i>
-          <span>FAQ</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fas fa-cog"></i>
-          <span>Setting</span>
+          <i class="fas fa-users"></i>
+          <span>Users</span>
         </a>
       </li>
       <li class="logout">
@@ -68,7 +56,7 @@
   <div class="main--content">
     <div class="header--wrapper">
       <div class="header--title">
-        <span>Primary</span>
+        <span>Get Aplikasi Indonesia</span>
         <h2>Dashboard</h2>
       </div>
       <div class="user--info">
@@ -106,6 +94,28 @@
           </div>
           <span class="card--detail">Administrator</span>
         </div>
+
+        <div class="payment--card">
+          <div class="card--header">
+            <div class="amount">
+              <span class="title">Terlambat</span>
+              <span class="amount--value">2 Orang</span>
+            </div>
+            <i class="fas fa-list icon"></i>
+          </div>
+          <span class="card--detail">Peserta Magang</span>
+        </div>
+
+        <div class="payment--card">
+          <div class="card--header">
+            <div class="amount">
+              <span class="title"></span>
+              <span class="amount--value"></span>
+            </div>
+            <i class="fas fa-barcode icon"></i>
+          </div>
+          <span class="card--detail">Administrator</span>
+        </div>
       </div>
     </div>
 
@@ -131,28 +141,23 @@
               </tr>
 
               <tr>
-                <td>1</td>
-                <td>Bagus Daffa Firmansyah</td>
-                <td>Politeknik Negeri Jember</td>
-                <td><button>Tepat Waktu</button></td>
+                <td>2</td>
+                <td>-</td>
+                <td>-</td>
+                <td><button>-</button></td>
               </tr>
 
               <tr>
-                <td>1</td>
-                <td>Bagus Daffa Firmansyah</td>
-                <td>Politeknik Negeri Jember</td>
-                <td><button>Tepat Waktu</button></td>
+                <td>3</td>
+                <td>-</td>
+                <td>-</td>
+                <td><button>-</button></td>
               </tr>
             </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="7">Total: 50 Orang</td>
-              </tr>
-            </tfoot>
         </table>
       </div>
+      <a href="#">Detail <i class="fa-solid fa-arrow-right"></i></a>
     </div>
-
   </div>
 
 

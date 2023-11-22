@@ -111,6 +111,10 @@ body {
     color: #fff;
 }
 
+.header--title span {
+    color: #2b2a4c;
+}
+
 .header--title h2 {
     font-weight: bold;
 }
@@ -156,7 +160,7 @@ body {
 .card--wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .main--title {
@@ -300,19 +304,25 @@ tr:nth-child(even) {
     background: #fff;
 }
 
-tfoot {
-    background: #f4ce14;
-    font-weight: bold;
-    color: #fff;
-}
-
-tfoot td {
-    padding: 15px;
-    color: #fff;
-}
-
 .table-container button {
     color: green;
     background: none;
     cursor: pointer;
+}
+
+.tabular--wrapper a {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    margin-top: 10px;
+    text-align: right;
+    color: #2b2a4c;
+}
+
+.tabular--wrapper a i {
+    justify-content: center;
+}
+
+.tabular--wrapper a:hover {
+    color: blue;
 }

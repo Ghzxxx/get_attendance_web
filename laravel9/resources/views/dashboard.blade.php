@@ -112,7 +112,7 @@
               <span class="title"></span>
               <span class="amount--value"></span>
             </div>
-            <i class="fas fa-barcode icon"></i>
+            <i class="fas fa-qrcode icon"></i>
           </div>
           <span class="card--detail">Administrator</span>
         </div>

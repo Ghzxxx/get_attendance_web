@@ -17,18 +17,18 @@
 </head>
 <body>
   <div class="sidebar">
-    <div class="logo"><img src="/img/Logo Get Aplikasi Indonesia.png" alt="Logo"></div>
+    <div class="logo"><img src="/img/Logo.png" alt="Logo"></div>
     <ul class="menu">
       <li class="active">
-        <a href="#">
+        <a href="/dashboard">
           <i class="fas fa-home"></i>
           <span>Dashboard</span>
         </a>
       </li>
       <li>
-        <a href="#">
-          <i class="fas fa-user"></i>
-          <span>Peserta Magang</span>
+        <a href="/peserta">
+          <i class="fas fa-users"></i>
+          <span>Peserta</span>
         </a>
       </li>
       <li>
@@ -39,7 +39,7 @@
       </li>
       <li>
         <a href="#">
-          <i class="fas fa-users"></i>
+          <i class="fas fa-user"></i>
           <span>Users</span>
         </a>
       </li>

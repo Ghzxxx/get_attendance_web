@@ -135,110 +135,6 @@ body {
     gap: 1rem;
 }
 
-.search--box {
-    background: rgb(237, 237, 237);
-    border-radius: 15px;
-    color: #2b2a4c;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 3px 10px;
-}
-
-.search--box input {
-    background: transparent;
-    padding: 10px;
-}
-
-.search--box i {
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.5s ease-out;
-}
-
-.search--box i:hover {
-    transform: scale(1.2);
-}
-
-/* Card Content */
-.card--container {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-}
-
-.card--wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-}
-
-.main--title {
-    color: #2b2a4c;
-    padding-bottom: 10px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.payment--card {
-    background: #5d6ec7;
-    border-radius: 10px;
-    padding: 1.2rem;
-    width: 290px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.5s ease-in-out;
-}
-
-.payment--card:hover {
-    transform: translateY(-5px);
-}
-
-.card--header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.amount {
-    display: flex;
-    flex-direction: column;
-}
-
-.title {
-    font-size: 12px;
-    font-weight: 200px;
-    color: #fff;
-}
-
-.amount--value {
-    font-size: 24px;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 600;
-    color: #fff;
-}
-
-.icon {
-    color: #2a528a;
-    padding: 1rem;
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    background: #fff;
-}
-
-.card--detail {
-    font-size: 18px;
-    color: #fff;
-    letter-spacing: 2px;
-    font-family: "Courier New", Courier, monospace;
-}
-
 /* Color CSS */
 .light-red {
     background: rgb(251, 233, 233);
@@ -320,20 +216,6 @@ tr:nth-child(even) {
     cursor: pointer;
 }
 
-.tabular--wrapper a {
-    display: block;
-    text-decoration: none;
-    position: relative;
-    margin-top: 20px;
-    text-align: right;
-    color: #2b2a4c;
-    font-weight: bold;
-}
-
-.tabular--wrapper a i {
-    justify-content: center;
-}
-
-.tabular--wrapper a:hover {
-    color: blue;
+.add a {
+    background: #5d6ec7;
 }

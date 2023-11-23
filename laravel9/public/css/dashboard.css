@@ -215,9 +215,9 @@ body {
 }
 
 .amount--value {
-    font-size: 24px;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 600;
+    font-size: 28px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
     color: #fff;
 }
 
@@ -257,7 +257,7 @@ body {
 }
 
 .dark-red {
-    background: red;
+    background: #c70039;
 }
 
 .dark-purple {

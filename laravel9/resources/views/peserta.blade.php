@@ -32,19 +32,19 @@
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="/absen">
           <i class="fas fa-chart-bar"></i>
           <span>Absen</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="/user">
           <i class="fas fa-user"></i>
           <span>Users</span>
         </a>
       </li>
       <li class="logout">
-        <a href="#">
+        <a href="/logout">
           <i class="fas fa-sign-out-alt"></i>
           <span>Logout</span>
         </a>
@@ -64,7 +64,7 @@
           <i class="fa-solid fa-search"></i>
           <input type="text" placeholder="Search">
         </div> --}}
-        <img src="/img/Meow.jpg" alt="">
+        <img src="/img/user.png" alt="">
       </div>
     </div>
 

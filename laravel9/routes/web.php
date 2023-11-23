@@ -24,3 +24,20 @@ Route::get('/dashboard', function () {
 Route::get('/peserta', function () {
     return view('peserta');
 });
+
+Route::get('/absen', function () {
+    return view('absen');
+});
+
+Route::get('/user', function () {
+    return view('user');
+});
+
+Route::get('/logout', function () {
+    return view('logout');
+});
+
+
+Route::get('/coba', function () {
+    return view('coba');
+});

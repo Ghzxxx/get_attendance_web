@@ -24,7 +24,7 @@ body {
     color: #fff;
     overflow: hidden;
     transition: all 0.5s linear;
-    background: #f4ce14;
+    background: #fff;
 }
 
 .sidebar:hover {
@@ -33,8 +33,17 @@ body {
 }
 
 .logo {
-    height: 80px;
-    padding: 16px;
+    height: 50px;
+    padding: 16px 1px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    right: 7px;
+}
+
+.logo img {
+    width: 50px;
+    border-radius: 50%;
 }
 
 .menu {

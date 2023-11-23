@@ -17,7 +17,7 @@
 </head>
 <body>
   <div class="sidebar">
-    <div class="logo"></div>
+    <div class="logo"><img src="/img/Logo Get Aplikasi Indonesia.png" alt="Logo"></div>
     <ul class="menu">
       <li class="active">
         <a href="#">

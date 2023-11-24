@@ -29,6 +29,10 @@ Route::get('/pesertaAdd', function () {
     return view('pesertaAdd');
 });
 
+Route::get('/pesertaDetail', function () {
+    return view('pesertaDetail');
+});
+
 Route::get('/absen', function () {
     return view('absen');
 });

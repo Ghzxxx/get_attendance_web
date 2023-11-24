@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Peserta Add</title>
+  <title>Peserta Detail</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -70,34 +70,59 @@
 
     {{-- Table Content --}}
     <div class="tabular--wrapper">
-        <h3 class="mb-3">Tambah Data Peserta Magang</h3>
-        <form>
-          <div class="mb-3">
-              <label for="name" class="form-label">Nama</label>
-              <input type="text" class="form-control" id="name" required>
-          </div>
+      <h3 class="main--title">Detail Peserta Magang</h3>
+      
+      <div class="container">
+        <div class="card mx-auto" style="max-width: 400px;">
+            <img src="https://placekitten.com/150/150" class="card-img-top" alt="User Image">
+            <ul class="list-group list-group-flush mt-3">
+                <li class="list-group-item"><strong>Nama:</strong> Bagus Daffa Firmansyah</li>
+                <li class="list-group-item"><strong>Asal Sekolah:</strong> Politeknik Negeri Jember</li>
+                <li class="list-group-item"><strong>Nomor Handphone:</strong> 081336703009</li>
+                <li class="list-group-item"><strong>Jenis Kelamin:</strong> Laki-laki</li>
+            </ul>
+            <div class="card-body text-center">
+                <a href="/peserta" class="btn btn-primary btn-action text-white">Kembali</a>
+            </div>
+        </div>
+    </div>
 
-          <div class="mb-3">
-            <label for="alamat" class="form-label">Asal Sekolah</label>
-            <textarea class="form-control" id="alamat" rows="3" required></textarea>
-          </div>
-  
-          <div class="mb-3">
-              <label for="nohp" class="form-label">Nomor Handphone</label>
-              <input type="text" class="form-control" id="nohp" required>
-          </div>
-  
-          <div class="mb-3">
-              <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
-              <select class="form-select" id="jenisKelamin">
-                <option value="#">Select One</option>
-                  <option value="laki-laki">Laki-laki</option>
-                  <option value="perempuan">Perempuan</option>
-              </select>
-          </div>
-  
-          <button type="submit" class="btn btn-primary">Simpan</button>
-      </form>
+    <style>
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            background: #5d6ec7;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-top {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .card-title {
+            margin-top: 10px;
+        }
+
+        .list-group-item {
+            border: none;
+        }
+
+        .btn-action {
+            width: 120px;
+            margin: 10px;
+        }
+    </style>
+
     </div>
   </div>
 

@@ -93,7 +93,7 @@
                 <td>Politeknik Negeri Jember</td>
                 <td>081336703009</td>
                 <td>
-                    <a href="#" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a>
+                    <a href="/pesertaDetail" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a>
                     <a href="#" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a>
                     <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
                 </td>
@@ -173,6 +173,25 @@
             </tbody>
         </table>
       </div>
+      
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
     </div>
   </div>
 

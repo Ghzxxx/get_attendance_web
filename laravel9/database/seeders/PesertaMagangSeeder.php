@@ -15,10 +15,26 @@ class PesertaMagangSeeder extends Seeder
      */
     public function run()
     {
-        PesertaMagang::create([
-            'nama' => 'Daffa Athala Z',
-            'asal' => 'Las Vegas',
-            'nohp' => '123456789',
-        ]);
+        $data = [
+            [
+                'nama' => 'Daffa Athala Z',
+                'asal' => 'Las Vegas',
+                'nohp' => '123456789',
+            ],
+            [
+                'nama' => 'Bagus Daffa F',
+                'asal' => 'New York',
+                'nohp' => '987654321',
+            ],
+            [
+                'nama' => 'Ipong Slebew',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+        ];
+
+        foreach ($data as $item) {
+            PesertaMagang::create($item);
     }
+}
 }

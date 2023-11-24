@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DataPeserta;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/peserta', function () {
-    return view('peserta');
-});
+Route::get('/peserta', [DataPeserta::class, 'index']);
 
 Route::get('/pesertaAdd', function () {
     return view('pesertaAdd');

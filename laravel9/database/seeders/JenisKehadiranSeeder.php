@@ -16,9 +16,9 @@ class JenisKehadiranSeeder extends Seeder
     public function run()
     {
         $jenisKehadiranData = [
-            ['jenis kehairan' => 'Tepat Waktu'],
-            ['jenis kehairan' => 'Terlambat'],
-            ['jenis kehairan' => 'Tidak Masuk'],
+            ['jenis kehadiran' => 'Tepat Waktu'],
+            ['jenis kehadiran' => 'Terlambat'],
+            ['jenis kehadiran' => 'Tidak Masuk'],
         ];
         foreach ($jenisKehadiranData as $data) {
             JenisKehadiran::create($data);

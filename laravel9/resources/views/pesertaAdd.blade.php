@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Absen</title>
+  <title>Peserta</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -25,13 +25,13 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li>
+      <li class="active">
         <a href="/peserta">
           <i class="fas fa-users"></i>
           <span>Peserta</span>
         </a>
       </li>
-      <li class="active">
+      <li>
         <a href="/absen">
           <i class="fas fa-chart-bar"></i>
           <span>Absen</span>
@@ -57,7 +57,7 @@
     <div class="header--wrapper">
       <div class="header--title">
         <span>Get Aplikasi Indonesia</span>
-        <h2>Absensi</h2>
+        <h2>Peserta Magang</h2>
       </div>
       <div class="user--info">
         {{-- <div class="search--box">
@@ -68,72 +68,24 @@
       </div>
     </div>
 
-    <div class="add">
-        <a href="#" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a>
-    </div>
-
     {{-- Table Content --}}
     <div class="tabular--wrapper">
-      <h3 class="main--title">Absen Peserta Magang</h3>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Name</th>
-              <th>Asal Sekolah</th>
-              <th>Foto</th>
-              <th>Waktu</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Bagus Daffa Firmansyah</td>
-                <td>Politeknik Negeri Jember</td>
-                <td>
-                  <img src="/img/foto.jpg" alt="Logo" width="80">
-                </td>
-                <td>08.00 WIB</td>
-                <td>
-                    <a href="#" class="btn btn-success text-white">Tepat Waktu <i class="fas fa-check"></i></a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>2</td>
-                <td>Bagus Daffa Firmansyah</td>
-                <td>Politeknik Negeri Jember</td>
-                <td>
-                  <img src="/img/foto.jpg" alt="Logo" width="80">
-                </td>
-                <td>08.01 WIB</td>
-                <td>
-                    <a href="#" class="btn btn-danger">Terlambat <i class="fas fa-xmark"></i></a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>3</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td><button>-</button></td>
-              </tr>
-
-              <tr>
-                <td>4</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td><button>-</button></td>
-              </tr>
-            </tbody>
-        </table>
-      </div>
+        <h3 class="mb-3">Tambah Data Peserta Magang</h3>
+        <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="sekolah" class="form-label">Asal Sekolah</label>
+                <input type="text" class="form-control" id="sekolah" required>
+              </div>
+            <div class="mb-3">
+              <label for="telp" class="form-label">No.Telp</label>
+              <input type="text" class="form-control" id="text" required>
+            </div>
+            <a href="/peserta" class="btn btn-primary">Submit</a>
+        </form>
     </div>
   </div>
 

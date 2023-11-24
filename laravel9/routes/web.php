@@ -25,6 +25,10 @@ Route::get('/peserta', function () {
     return view('peserta');
 });
 
+Route::get('/pesertaAdd', function () {
+    return view('pesertaAdd');
+});
+
 Route::get('/absen', function () {
     return view('absen');
 });
@@ -35,9 +39,4 @@ Route::get('/user', function () {
 
 Route::get('/logout', function () {
     return view('logout');
-});
-
-
-Route::get('/coba', function () {
-    return view('coba');
 });

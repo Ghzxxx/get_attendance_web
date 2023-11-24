@@ -95,7 +95,7 @@
           <span class="card--detail">Peserta Magang</span>
         </div>
 
-        <div class="payment--card">
+        <div class="payment--card dark-blue">
           <div class="card--header">
             <div class="amount">
               <span class="title">Admin</span>
@@ -137,14 +137,14 @@
                 <td>1</td>
                 <td>Bagus Daffa Firmansyah</td>
                 <td>Politeknik Negeri Jember</td>
-                <td><button>Tepat Waktu</button></td>
+                <td><button>Terlambat</button></td>
               </tr>
 
               <tr>
                 <td>2</td>
-                <td>-</td>
-                <td>-</td>
-                <td><button>-</button></td>
+                <td>Bagus Daffa Firmansyah</td>
+                <td>Politeknik Negeri Jember</td>
+                <td><button>Terlambat</button></td>
               </tr>
 
               <tr>
@@ -156,7 +156,7 @@
             </tbody>
         </table>
       </div>
-      <a href="#">Detail <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="/absen">Detail <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 

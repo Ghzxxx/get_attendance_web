@@ -99,10 +99,6 @@
                     <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
                 </td>
               </tr>
-
-            
-
-              
               @endforeach
             </tbody>
         </table>

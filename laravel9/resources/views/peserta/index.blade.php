@@ -60,10 +60,6 @@
         <h2>Peserta Magang</h2>
       </div>
       <div class="user--info">
-        {{-- <div class="search--box">
-          <i class="fa-solid fa-search"></i>
-          <input type="text" placeholder="Search">
-        </div> --}}
         <img src="/img/user.png" alt="">
       </div>
     </div>

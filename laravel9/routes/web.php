@@ -47,3 +47,7 @@ Route::get('/user', function () {
 Route::get('/logout', function () {
     return view('logout');
 });
+
+Route::get('/qrcode', function () {
+    return view('qrcode');
+});

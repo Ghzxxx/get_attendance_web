@@ -27,6 +27,7 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/peserta', [DataPeserta::class, 'index']);
+Route::get('/pesertaDetail', [DataPeserta::class, 'show']);
 
 Route::get('/pesertaAdd', function () {
     return view('pesertaAdd');

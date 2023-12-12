@@ -70,59 +70,16 @@
 
     {{-- Table Content --}}
     <div class="tabular--wrapper">
-      <h3 class="main--title">Detail Peserta Magang</h3>
-      
-      <div class="container">
-        <div class="card mx-auto" style="max-width: 400px;">
-            <img src="https://placekitten.com/150/150" class="card-img-top" alt="User Image">
-            <ul class="list-group list-group-flush mt-3">
-                <li class="list-group-item"><strong>Nama:</strong> Bagus Daffa Firmansyah</li>
-                <li class="list-group-item"><strong>Asal Sekolah:</strong> Politeknik Negeri Jember</li>
-                <li class="list-group-item"><strong>Nomor Handphone:</strong> 081336703009</li>
-                <li class="list-group-item"><strong>Jenis Kelamin:</strong> Laki-laki</li>
-            </ul>
-            <div class="card-body text-center">
-                <a href="/peserta" class="btn btn-primary btn-action text-white">Kembali</a>
-            </div>
-        </div>
-    </div>
-
-    <style>
-
-        .container {
-            margin-top: 50px;
-        }
-
-        .card {
-            background: #5d6ec7;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-img-top {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin: 0 auto;
-            margin-top: 20px;
-        }
-
-        .card-title {
-            margin-top: 10px;
-        }
-
-        .list-group-item {
-            border: none;
-        }
-
-        .btn-action {
-            width: 120px;
-            margin: 10px;
-        }
-    </style>
-
+      <h3 class="main--title mb-4">Detail Peserta Magang</h3>
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          @foreach($pesertaMagangData as $peserta)
+          <li class="list-group-item">{{ $peserta->nama }}</li>
+          <li class="list-group-item">{{ $peserta->asal }}</li>
+          <li class="list-group-item">{{ $peserta->nohp }}</li>
+          @endforeach
+        </ul>
+      </div>
     </div>
   </div>
 

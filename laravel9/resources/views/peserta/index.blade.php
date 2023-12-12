@@ -90,7 +90,7 @@
                 <td>{{ $peserta->asal }}</td>
                 <td>{{ $peserta->nohp }}</td>
                 <td>
-                    <a href="#" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a>
+                    <a href="/pesertaDetail" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a>
                     <a href="#" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a>
                     <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
                 </td>

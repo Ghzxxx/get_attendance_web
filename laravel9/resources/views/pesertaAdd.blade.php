@@ -71,25 +71,32 @@
     {{-- Table Content --}}
     <div class="tabular--wrapper">
         <h3 class="mb-3">Tambah Data Peserta Magang</h3>
-        <form action="peserta" method="POST">
-          @csrf
+        <form>
           <div class="mb-3">
-              <label for="nama" class="form-label">Nama</label>
-              <input type="text" name="nama" class="form-control" id="nama" required>
+              <label for="name" class="form-label">Nama</label>
+              <input type="text" class="form-control" id="name" required>
           </div>
 
           <div class="mb-3">
-            <label for="asal" class="form-label">Asal Sekolah</label>
-            <textarea class="form-control" name="asal" id="asal" rows="3" required></textarea>
+            <label for="alamat" class="form-label">Asal Sekolah</label>
+            <textarea class="form-control" id="alamat" rows="3" required></textarea>
           </div>
   
           <div class="mb-3">
               <label for="nohp" class="form-label">Nomor Handphone</label>
-              <input type="text" name="nohp" class="form-control" id="nohp" required>
+              <input type="text" class="form-control" id="nohp" required>
           </div>
-          
-          <a href="/peserta" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
-          <button type="submit" class="btn btn-success">Simpan</button>
+  
+          <div class="mb-3">
+              <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
+              <select class="form-select" id="jenisKelamin">
+                <option value="#">Select One</option>
+                  <option value="laki-laki">Laki-laki</option>
+                  <option value="perempuan">Perempuan</option>
+              </select>
+          </div>
+  
+          <button type="submit" class="btn btn-primary">Simpan</button>
       </form>
     </div>
   </div>
@@ -97,6 +104,5 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/3bf8feb25e.js" crossorigin="anonymous"></script>
 </body>
 </html>

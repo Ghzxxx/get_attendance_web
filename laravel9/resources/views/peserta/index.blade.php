@@ -65,7 +65,7 @@
     </div>
 
     <div class="add">
-        <a href="/pesertaAdd" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a>
+        <a href="/peserta-add" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a>
     </div>
 
     {{-- Table Content --}}
@@ -90,8 +90,8 @@
                 <td>{{ $peserta->asal }}</td>
                 <td>{{ $peserta->nohp }}</td>
                 <td>
-                    <a href="/pesertaDetail" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a>
-                    <a href="#" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a>
+                    <a href="/peserta/{{ $peserta->id }}" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a>
+                    <a href="/peserta-edit/{{ $peserta->id }}" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a>
                     <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
                 </td>
               </tr>

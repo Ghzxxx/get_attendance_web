@@ -60,31 +60,33 @@
         <h2>Peserta Magang</h2>
       </div>
       <div class="user--info">
-        {{-- <div class="search--box">
-          <i class="fa-solid fa-search"></i>
-          <input type="text" placeholder="Search">
-        </div> --}}
         <img src="/img/user.png" alt="">
       </div>
     </div>
 
     {{-- Table Content --}}
     <div class="tabular--wrapper">
-      <h3 class="main--title mb-4">Detail Peserta Magang</h3>
-      <div class="card" style="width: 18rem;">
-        <ul class="list-group list-group-flush">
-          @foreach($pesertaMagangData as $peserta)
-          <li class="list-group-item">{{ $peserta->nama }}</li>
-          <li class="list-group-item">{{ $peserta->asal }}</li>
-          <li class="list-group-item">{{ $peserta->nohp }}</li>
-          @endforeach
-        </ul>
-      </div>
+      <h3 class="main--title mb-4">Detail Peserta Magang {{ $peserta->nama }}</h3>
+      <table class="table table-bordered">
+        <tr>
+          <th>Nama</th>
+          <th>Asal Sekolah</th>
+          <th>No.Telephone</th>
+        </tr>
+        <tr>
+          <td>{{ $peserta->nama }}</td>
+          <td>{{ $peserta->asal }}</td>
+          <td>{{ $peserta->nohp }}</td>
+        </tr>
+      </table>
+
+      <a href="/peserta" class="btn btn-primary mt-2"><i class="fa-solid fa-arrow-left"></i> Back</a>
     </div>
   </div>
 
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/3bf8feb25e.js" crossorigin="anonymous"></script>
 </body>
 </html>

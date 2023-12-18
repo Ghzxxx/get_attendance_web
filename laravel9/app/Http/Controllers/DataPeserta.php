@@ -14,27 +14,35 @@ class DataPeserta extends Controller
 
     public function create()
     {
-        dd('Berhasil add data');
+        return view('peserta-add');
     }
 
     public function store(Request $request)
     {
-        // Your code for storing data from the form
+        $pesertaMagangData = PesertaMagang::create($request->all());
+
+        return redirect('/peserta');
     }
 
     public function show($id)
     {
-        // Your code for displaying a specific record
+        $pesertaMagangData = PesertaMagang::findOrFail($id);
+        return view('pesertaDetail', ['peserta' => $pesertaMagangData]);
     }
 
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        // Your code for displaying the form to edit a record
+        $pesertaMagangData = PesertaMagang::findOrFail($id);
+        return view('peserta-edit', ['peserta' => $pesertaMagangData]);
     }
 
     public function update(Request $request, $id)
     {
-        // Your code for updating a record based on the form data
+        $pesertaMagangData = PesertaMagang::findOrFail($id);
+
+        $pesertaMagangData->update($request->all());
+
+        return redirect('/peserta');
     }
 
     public function destroy($id)

@@ -27,12 +27,11 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/peserta', [DataPeserta::class, 'index']);
-Route::get('/pesertaDetail', [DataPeserta::class, 'show']);
+Route::get('/peserta/{id}', [DataPeserta::class, 'show']);
 Route::get('/peserta-add', [DataPeserta::class, 'create']);
-
-Route::get('/pesertaDetail', function () {
-    return view('pesertaDetail');
-});
+Route::post('/peserta', [DataPeserta::class, 'store']);
+Route::get('/peserta-edit/{id}', [DataPeserta::class, 'edit']);
+Route::put('/peserta/{id}', [DataPeserta::class, 'update']);
 
 Route::get('/absen', function () {
     return view('absen');

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Peserta Add</title>
+  <title>Peserta Edit</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -60,34 +60,31 @@
         <h2>Peserta Magang</h2>
       </div>
       <div class="user--info">
-        {{-- <div class="search--box">
-          <i class="fa-solid fa-search"></i>
-          <input type="text" placeholder="Search">
-        </div> --}}
         <img src="/img/user.png" alt="">
       </div>
     </div>
 
     {{-- Table Content --}}
     <div class="tabular--wrapper">
-        <h3 class="mb-3">Tambah Data Peserta Magang</h3>
-        <form action="peserta" method="POST">
-          @csrf
+        <h3 class="mb-3">Edit Data Peserta Magang</h3>
+        <form action="/peserta/{{ $peserta->id }}" method="POST">
+            @method('PUT')
+            @csrf
           <div class="mb-3">
-              <label for="nama" class="form-label">Nama</label>
-              <input type="text" name="nama" class="form-control" id="nama" required>
+              <label for="name" class="form-label">Nama</label>
+              <input type="text" name="nama" class="form-control" id="name" value="{{ $peserta->nama }}" required>
           </div>
 
           <div class="mb-3">
             <label for="asal" class="form-label">Asal Sekolah</label>
-            <textarea class="form-control" name="asal" id="asal" rows="3" required></textarea>
+            <textarea class="form-control" name="asal" id="asal" rows="3" value="{{ $peserta->asal }}" required>{{ $peserta->asal }}</textarea>
           </div>
   
           <div class="mb-3">
               <label for="nohp" class="form-label">Nomor Handphone</label>
-              <input type="text" name="nohp" class="form-control" id="nohp" required>
+              <input type="text" class="form-control" name="nohp" id="nohp" value="{{ $peserta->nohp }}" required>
           </div>
-          
+  
           <a href="/peserta" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
           <button type="submit" class="btn btn-success">Simpan</button>
       </form>

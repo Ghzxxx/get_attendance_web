@@ -23,10 +23,6 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
 Route::get('/peserta', [DataPeserta::class, 'index']);
 Route::get('/peserta/{id}', [DataPeserta::class, 'show']);
 Route::get('/peserta-add', [DataPeserta::class, 'create']);

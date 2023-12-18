@@ -18,7 +18,7 @@ class QRCodeController extends Controller
 
         // Generate QR code with the random data
         $qrCode = QrCode::format('png')
-            ->backgroundColor(249, 245, 235)
+            // ->backgroundColor(249, 245, 235)
             ->color(0, 0, 0)
             ->size(500)
             ->generate($randomData);

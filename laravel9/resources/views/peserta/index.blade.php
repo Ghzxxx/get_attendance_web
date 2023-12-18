@@ -18,38 +18,7 @@
 <body>
   <div class="sidebar">
     <div class="logo"><img src="/img/Logo.png" alt="Logo"></div>
-    <ul class="menu">
-      <li>
-        <a href="/dashboard">
-          <i class="fas fa-home"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li class="active">
-        <a href="/peserta">
-          <i class="fas fa-users"></i>
-          <span>Peserta</span>
-        </a>
-      </li>
-      <li>
-        <a href="/absen">
-          <i class="fas fa-chart-bar"></i>
-          <span>Absen</span>
-        </a>
-      </li>
-      <li>
-        <a href="/user">
-          <i class="fas fa-user"></i>
-          <span>Users</span>
-        </a>
-      </li>
-      <li class="logout">
-        <a href="/logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span>Logout</span>
-        </a>
-      </li>
-    </ul>
+    @include('layouts.sidebar')
   </div>
 
   {{-- Content --}}
@@ -65,7 +34,10 @@
     </div>
 
     <div class="add">
-        <a href="/peserta-add" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a>
+        {{-- <a href="/peserta-add" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a> --}}
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fas fa-plus"></i> Tambah
+        </button>
     </div>
 
     {{-- Table Content --}}
@@ -101,6 +73,41 @@
       </div>
     </div>
   </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Tambah Data Peserta Magang</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="peserta" method="POST">
+          @csrf
+          <div class="mb-3">
+              <label for="nama" class="form-label">Nama</label>
+              <input type="text" name="nama" class="form-control" id="nama" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="asal" class="form-label">Asal Sekolah</label>
+            <textarea class="form-control" name="asal" id="asal" rows="3" required></textarea>
+          </div>
+  
+          <div class="mb-3">
+              <label for="nohp" class="form-label">Nomor Handphone</label>
+              <input type="text" name="nohp" class="form-control" id="nohp" required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Kembali</button>
+            <button type="submit" class="btn btn-success">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

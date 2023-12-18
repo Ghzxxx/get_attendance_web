@@ -18,38 +18,7 @@
 <body>
   <div class="sidebar">
     <div class="logo"><img src="/img/Logo.png" alt="Logo"></div>
-    <ul class="menu">
-      <li class="active">
-        <a href="/dashboard">
-          <i class="fas fa-home"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="/peserta">
-          <i class="fas fa-users"></i>
-          <span>Peserta</span>
-        </a>
-      </li>
-      <li>
-        <a href="/absen">
-          <i class="fas fa-chart-bar"></i>
-          <span>Absen</span>
-        </a>
-      </li>
-      <li>
-        <a href="/user">
-          <i class="fas fa-user"></i>
-          <span>Users</span>
-        </a>
-      </li>
-      <li class="logout">
-        <a href="/logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span>Logout</span>
-        </a>
-      </li>
-    </ul>
+    @include('layouts.sidebar')
   </div>
 
   {{-- Navbar --}}
@@ -60,10 +29,6 @@
         <h2>Dashboard</h2>
       </div>
       <div class="user--info">
-        {{-- <div class="search--box">
-          <i class="fa-solid fa-search"></i>
-          <input type="text" placeholder="Search">
-        </div> --}}
         <img src="/img/user.png" alt="User">
       </div>
     </div>
@@ -111,9 +76,7 @@
               <span class="title"></span>
               <span class="amount--value"></span>
             </div>
-            <button type="button" class="btn btn-emphasis" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <i class="fas fa-qrcode icon"></i>
-            </button>
+            <a href="/qrcode" class="btn btn-emphasis"><i class="fas fa-qrcode icon"></i></a>
           </div>
           <span class="card--detail">QR Code</span>
         </div>
@@ -160,30 +123,6 @@
       <a href="/absen">Detail <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">QR Code</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              {{-- Display the QR code --}}
-              <img src="{{ route('qrcode.generate') }}">
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success">Save changes</button>
-          </div>
-      </div>
-  </div>
-</div>
-
-
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

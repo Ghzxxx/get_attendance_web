@@ -216,7 +216,7 @@ tr:nth-child(even) {
     cursor: pointer;
 }
 
-.add a {
+.add button {
     background: #5d6ec7;
 }
 

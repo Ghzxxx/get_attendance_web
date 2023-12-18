@@ -18,38 +18,7 @@
 <body>
   <div class="sidebar">
     <div class="logo"><img src="/img/Logo.png" alt="Logo"></div>
-    <ul class="menu">
-      <li>
-        <a href="/dashboard">
-          <i class="fas fa-home"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="/peserta">
-          <i class="fas fa-users"></i>
-          <span>Peserta</span>
-        </a>
-      </li>
-      <li>
-        <a href="/absen">
-          <i class="fas fa-chart-bar"></i>
-          <span>Absen</span>
-        </a>
-      </li>
-      <li>
-        <a href="/user">
-          <i class="fas fa-user"></i>
-          <span>Users</span>
-        </a>
-      </li>
-      <li class="active">
-        <a href="/logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span>Logout</span>
-        </a>
-      </li>
-    </ul>
+    @include('layouts.sidebar')
   </div>
 
   {{-- Content --}}
@@ -73,7 +42,7 @@
       <h3 class="main--title">Logout</h3>
       <p>Apakah anda ingin keluar ?</p>
         <a href="/login" class="btn btn-success">Iya</a>
-        <a href="/dashboard" class="btn btn-danger">Tidak</a>
+        <a href="/" class="btn btn-danger">Tidak</a>
     </div>
   </div>
 

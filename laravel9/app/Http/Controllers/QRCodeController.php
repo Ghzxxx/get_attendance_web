@@ -14,7 +14,7 @@ class QRCodeController extends Controller
     public function show(Request $request)
     {
         // You can customize the QR code data based on the request or any other logic.
-        $randomData = Str::random(15);
+        $randomData = Str::random(20);
 
         // Generate QR code with the random data
         $qrCode = QrCode::format('png')
@@ -25,7 +25,7 @@ class QRCodeController extends Controller
 
         // If it's an API request, return the QR code data in the API response
         if ($request->is('api/*')) {
-            return response()->json(['qrCode' => $qrCode]);
+            return response()->json(['qrCode' => base64_encode($qrCode)]);
         }
 
         // If it's a web request, render the blade view with the QR code

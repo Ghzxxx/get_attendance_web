@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DataPeserta;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QRCodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,6 @@ Route::get('/logout', function () {
     return view('logout');
 });
 
-Route::get('/qrcode', function () {
-    return view('qrcode');
-});
+//Route::get('/generate-qrcode', 'App\Http\Controllers\QRCodeController@generateQRCode');
+Route::get('/qrcode', [QRCodeController::class, 'show'])->name('qrcode.generate');
+

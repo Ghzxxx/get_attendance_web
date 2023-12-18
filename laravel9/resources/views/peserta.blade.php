@@ -69,7 +69,7 @@
     </div>
 
     <div class="add">
-        <a href="/pesertaAdd" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a>
+        <a href="/peserta-add" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a>
     </div>
 
     {{-- Table Content --}}

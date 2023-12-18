@@ -8,15 +8,13 @@ class DataPeserta extends Controller
 {
     public function index()
     {
-        // Your code for displaying data
-
         $pesertaMagangData = PesertaMagang::all();
         return view('peserta.index', ['pesertaMagangData' => $pesertaMagangData]);
     }
 
     public function create()
     {
-        // Your code for displaying the form to create data
+        dd('Berhasil add data');
     }
 
     public function store(Request $request)

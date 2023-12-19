@@ -3,6 +3,7 @@
 use App\Http\Controllers\DataPeserta;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRCodeController;
+use App\Http\Controllers\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,8 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [AdminUserController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AdminUserController::class, 'login']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -29,17 +29,16 @@
         <h2>Absensi</h2>
       </div>
       <div class="user--info">
-        {{-- <div class="search--box">
-          <i class="fa-solid fa-search"></i>
-          <input type="text" placeholder="Search">
-        </div> --}}
         <img src="/img/user.png" alt="">
       </div>
     </div>
 
-    <div class="add">
+    {{-- <div class="add">
         <a href="#" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a>
-    </div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fas fa-plus"></i> Tambah
+        </button>
+    </div> --}}
 
     {{-- Table Content --}}
     <div class="tabular--wrapper">
@@ -62,11 +61,11 @@
                 <td>Bagus Daffa Firmansyah</td>
                 <td>Politeknik Negeri Jember</td>
                 <td>
-                  <img src="/img/foto.jpg" alt="Logo" width="80">
+                  <img src="/img/foto.jpg" alt="Logo" width="80" class="rounded">
                 </td>
                 <td>08.00 WIB</td>
                 <td>
-                    <a href="#" class="btn btn-success text-white">Tepat Waktu <i class="fas fa-check"></i></a>
+                    <a href="#" class="btn btn-success text-white"> <i class="fas fa-check"></i></a>
                 </td>
               </tr>
 
@@ -75,30 +74,12 @@
                 <td>Bagus Daffa Firmansyah</td>
                 <td>Politeknik Negeri Jember</td>
                 <td>
-                  <img src="/img/foto.jpg" alt="Logo" width="80">
+                  <img src="/img/foto.jpg" alt="Logo" width="80" class="rounded">
                 </td>
                 <td>08.01 WIB</td>
                 <td>
-                    <a href="#" class="btn btn-danger">Terlambat <i class="fas fa-xmark"></i></a>
+                    <a href="#" class="btn btn-danger"> <i class="fas fa-xmark"></i></a>
                 </td>
-              </tr>
-
-              <tr>
-                <td>3</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td><button>-</button></td>
-              </tr>
-
-              <tr>
-                <td>4</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td><button>-</button></td>
               </tr>
             </tbody>
         </table>

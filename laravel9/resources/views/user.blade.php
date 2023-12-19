@@ -29,16 +29,15 @@
         <h2>User Administrator</h2>
       </div>
       <div class="user--info">
-        {{-- <div class="search--box">
-          <i class="fa-solid fa-search"></i>
-          <input type="text" placeholder="Search">
-        </div> --}}
         <img src="/img/user.png" alt="">
       </div>
     </div>
 
     <div class="add">
-        <a href="#" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a>
+        {{-- <a href="#" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a> --}}
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fas fa-plus"></i> Tambah
+        </button>
     </div>
 
     {{-- Table Content --}}
@@ -50,7 +49,9 @@
             <tr>
               <th>No</th>
               <th>Name</th>
+              <th>Email</th>
               <th>No.Telp</th>
+              <th>Foto</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -58,26 +59,58 @@
               <tr>
                 <td>1</td>
                 <td>Bagus Daffa Firmansyah</td>
+                <td>bagusdaffaf01@gmail.com</td>
                 <td>081336703009</td>
                 <td>
-                    <a href="#" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a>
+                  <img src="/img/foto.jpg" alt="Logo" width="80" class="rounded">
+                </td>
+                <td>
+                    {{-- <a href="#" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a> --}}
                     <a href="#" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a>
                     <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
                 </td>
-              </tr>
-
-              <tr>
-                <td>2</td>
-                <td>-</td>
-                <td>-</td>
-                <td></td>
-                <td><button>-</button></td>
               </tr>
             </tbody>
         </table>
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Tambah User Admin</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="peserta" method="POST">
+          @csrf
+          <div class="mb-3">
+              <label for="nama" class="form-label">Nama</label>
+              <input type="text" name="nama" class="form-control" id="nama" required>
+          </div>
+          
+          <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" name="email" class="form-control" id="email" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="nohp" class="form-label">No.Telephone</label>
+              <input type="nohp" name="nohp" class="form-control" id="nohp" required>
+          </div>
+  
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Kembali</button>
+            <button type="submit" class="btn btn-success">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

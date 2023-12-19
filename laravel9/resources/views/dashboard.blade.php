@@ -93,6 +93,8 @@
               <th>No</th>
               <th>Name</th>
               <th>Asal Sekolah</th>
+              <th>Foto</th>
+              <th>Waktu</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -101,26 +103,16 @@
                 <td>1</td>
                 <td>Bagus Daffa Firmansyah</td>
                 <td>Politeknik Negeri Jember</td>
+                <td>
+                  <img src="/img/foto.jpg" alt="Logo" width="80" class="rounded">
+                </td>
+                <td>08.01 WIB</td>
                 <td><button>Terlambat</button></td>
-              </tr>
-
-              <tr>
-                <td>2</td>
-                <td>Bagus Daffa Firmansyah</td>
-                <td>Politeknik Negeri Jember</td>
-                <td><button>Terlambat</button></td>
-              </tr>
-
-              <tr>
-                <td>3</td>
-                <td>-</td>
-                <td>-</td>
-                <td><button>-</button></td>
               </tr>
             </tbody>
-        </table>
+          </table>
+          <a href="/absen">Detail <i class="fa-solid fa-arrow-right"></i></a>
       </div>
-      <a href="/absen">Detail <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 

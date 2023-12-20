@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PesertaMagang;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PesertaCreateRequest;
 use Illuminate\Support\Facades\Session;
 
 
@@ -20,10 +21,18 @@ class DataPeserta extends Controller
         return view('peserta-add');
     }
 
-    public function store(Request $request)
+    public function store(PesertaCreateRequest $request)
     {
+
         $pesertaMagangData = PesertaMagang::create($request->all());
 
+        if ($pesertaMagangData) {
+            Session::flash('alert-class', 'alert-success');
+            Session::flash('message', 'Data berhasil ditambah.');
+        } else {
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message', 'Terjadi kesalahan. Data tidak dapat ditambah.');
+        }
         return redirect('/peserta');
     }
 
@@ -44,6 +53,14 @@ class DataPeserta extends Controller
         $pesertaMagangData = PesertaMagang::findOrFail($id);
 
         $pesertaMagangData->update($request->all());
+
+        if ($pesertaMagangData) {
+            Session::flash('alert-class', 'alert-success');
+            Session::flash('message', 'Data berhasil diubah.');
+        } else {
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message', 'Terjadi kesalahan. Data tidak dapat ditambah.');
+        }
 
         return redirect('/peserta');
     }

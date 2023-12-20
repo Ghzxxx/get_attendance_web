@@ -211,8 +211,6 @@ tr:nth-child(even) {
 }
 
 .table-container button {
-    color: green;
-    background: none;
     cursor: pointer;
 }
 

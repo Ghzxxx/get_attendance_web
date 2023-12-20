@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\PesertaMagang;
 use Illuminate\Http\Request;
+use App\Models\PesertaMagang;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+
 
 class DataPeserta extends Controller
 {

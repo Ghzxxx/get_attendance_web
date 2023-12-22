@@ -65,8 +65,25 @@ class DataPeserta extends Controller
         return redirect('/peserta');
     }
 
+    public function delete ($id) {
+
+        $pesertaMagangData = PesertaMagang::findOrFail($id);
+        return view('peserta-delete', ['peserta' => $pesertaMagangData]);
+    }
+
     public function destroy($id)
     {
-        // Your code for deleting a record
+        $deletedPesertaMagang = PesertaMagang::findOrFail($id);
+        $deletedPesertaMagang->delete();
+
+        if ($deletedPesertaMagang) {
+            Session::flash('alert-class', 'alert-success');
+            Session::flash('message', 'Data berhasil dihapus.');
+        } else {
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message', 'Terjadi kesalahan. Data tidak dapat ditambah.');
+        }
+
+        return redirect('/peserta');
     }
 }

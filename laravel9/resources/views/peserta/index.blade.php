@@ -73,15 +73,15 @@
             <tbody>
               @foreach($pesertaMagangData as $peserta)
               <tr>
-                <td>{{ $peserta->id }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $peserta->nama }}</td>
                 <td>{{ $peserta->asal }}</td>
                 <td>{{ $peserta->nohp }}</td>
                 <td>
                     <a href="/peserta/{{ $peserta->id }}" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a>
                     <a href="/peserta-edit/{{ $peserta->id }}" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a>
-                    {{-- <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a> --}}
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#konfirmasiModal"><i class="fas fa-trash"></i> Hapus</button>
+                    <a href="/peserta-delete/{{ $peserta->id }}" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                    {{-- <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#konfirmasiModal"><i class="fas fa-trash"></i> Hapus</button> --}}
                 </td>
               </tr>
               @endforeach

@@ -4,6 +4,7 @@ use App\Http\Controllers\DataPeserta;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,16 +18,19 @@ use App\Http\Controllers\AdminUserController;
 */
 
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
 
 Route::get('/login', [AdminUserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AdminUserController::class, 'login']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+
+Route::get('/', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index']);
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
 
 Route::get('/peserta', [DataPeserta::class, 'index'])->name('index');
 Route::get('/peserta/{id}', [DataPeserta::class, 'show']);
@@ -34,6 +38,8 @@ Route::get('/peserta-add', [DataPeserta::class, 'create']);
 Route::post('/peserta', [DataPeserta::class, 'store']);
 Route::get('/peserta-edit/{id}', [DataPeserta::class, 'edit']);
 Route::put('/peserta/{id}', [DataPeserta::class, 'update']);
+Route::get('/peserta-delete/{id}', [DataPeserta::class, 'delete']);
+Route::delete('/peserta-destroy/{id}', [DataPeserta::class, 'destroy']);
 
 Route::get('/absen', function () {
     return view('absen');

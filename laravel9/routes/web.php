@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardController;
+use App\Models\AdminUser;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,20 +18,12 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
-
 Route::get('/login', [AdminUserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AdminUserController::class, 'login']);
 
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// });
 
 Route::get('/peserta', [DataPeserta::class, 'index'])->name('index');
 Route::get('/peserta/{id}', [DataPeserta::class, 'show']);
@@ -45,9 +38,11 @@ Route::get('/absen', function () {
     return view('absen');
 });
 
-Route::get('/user', function () {
-    return view('user');
-});
+Route::get('/user', [AdminUserController::class, 'index']);
+Route::get('/user-add', [AdminUserController::class, 'create']);
+Route::post('/user', [AdminUserController::class, 'store']);
+Route::get('/user-delete/{id}', [AdminUserController::class, 'delete']);
+Route::delete('/user-destroy/{id}', [AdminUserController::class, 'destroy']);
 
 Route::get('/logout', function () {
     return view('logout');

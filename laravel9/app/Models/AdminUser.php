@@ -8,7 +8,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 
-class AdminUser extends Model implements Authenticatable
+class AdminUser extends Model
 {
-    use HasFactory, Notifiable, AuthenticatableTrait;
+    use HasFactory; 
+    protected $table = 'admin_users';
+    protected $fillable = [
+        'email',
+        'password',
+    ];
 }

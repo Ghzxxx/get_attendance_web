@@ -48,28 +48,24 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Name</th>
               <th>Email</th>
-              <th>No.Telp</th>
-              <th>Foto</th>
+              <th>Password</th>
               <th>Action</th>
             </tr>
           </thead>
             <tbody>
+              @foreach($userAdmin as $user)
               <tr>
-                <td>1</td>
-                <td>Bagus Daffa Firmansyah</td>
-                <td>bagusdaffaf01@gmail.com</td>
-                <td>081336703009</td>
-                <td>
-                  <img src="/img/foto.jpg" alt="Logo" width="80" class="rounded">
-                </td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->password }}</td>
                 <td>
                     {{-- <a href="#" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a> --}}
-                    <a href="#" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a>
-                    <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                    {{-- <a href="#" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a> --}}
+                    <a href="/user-delete/{{ $user->id }}" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
                 </td>
               </tr>
+              @endforeach
             </tbody>
         </table>
       </div>
@@ -85,21 +81,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="peserta" method="POST">
+        <form action="user" method="POST">
           @csrf
           <div class="mb-3">
-              <label for="nama" class="form-label">Nama</label>
-              <input type="text" name="nama" class="form-control" id="nama" required>
-          </div>
-          
-          <div class="mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" name="email" class="form-control" id="email" required>
+              <input type="text" name="email" class="form-control" id="email" required>
           </div>
 
           <div class="mb-3">
-              <label for="nohp" class="form-label">No.Telephone</label>
-              <input type="nohp" name="nohp" class="form-control" id="nohp" required>
+              <label for="password" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" id="password" required>
           </div>
   
           <div class="modal-footer">

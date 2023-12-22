@@ -8,25 +8,51 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminUserController extends Controller
 {
-    public function showLoginForm()
+    public function index()
     {
-        return view('/login');
+        $userAdmin = AdminUser::all();
+        return view('user', ['userAdmin' => $userAdmin]);
     }
 
-    public function login(Request $request)
+    public function create()
     {
-        $credentials = $request->only('username', 'password');
+        return view('user-add');
+    }
 
-        // Membuat instansi AdminUser
-        $adminUser = new AdminUser();
+    public function store(Request $request)
+    {
 
-        // Menggunakan metode attempt pada instansi AdminUser
-        if ($adminUser->attempt($credentials)) {
-            // Login berhasil, alihkan ke halaman dashboard atau halaman lainnya
-            return redirect()->intended('/dashboard');
-        }
+        $userAdmin = AdminUser::create($request->all());
 
-        // Login gagal, kembali ke halaman login dengan pesan error
-        return redirect('/login')->with('error', 'Login failed. Please check your credentials.');
+        // if ($userAdmin) {
+        //     Session::flash('alert-class', 'alert-success');
+        //     Session::flash('message', 'Data berhasil ditambah.');
+        // } else {
+        //     Session::flash('alert-class', 'alert-danger');
+        //     Session::flash('message', 'Terjadi kesalahan. Data tidak dapat ditambah.');
+        // }
+        return redirect('/user');
+    }
+    
+    public function delete ($id) {
+
+        $userAdmin = AdminUser::findOrFail($id);
+        return view('user-delete', ['user' => $userAdmin]);
+    }
+
+    public function destroy($id)
+    {
+        $deletedUserAdmin = AdminUser::findOrFail($id);
+        $deletedUserAdmin->delete();
+
+        // if ($deletedUserAdmin) {
+        //     Session::flash('alert-class', 'alert-success');
+        //     Session::flash('message', 'Data berhasil dihapus.');
+        // } else {
+        //     Session::flash('alert-class', 'alert-danger');
+        //     Session::flash('message', 'Terjadi kesalahan. Data tidak dapat ditambah.');
+        // }
+
+        return redirect('/user');
     }
 }

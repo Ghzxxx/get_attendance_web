@@ -29,9 +29,8 @@
             </div>
         @endif
 
-      <form action="{{ url('/login') }}" method="POST">
+      <form action="dashboard" method="POST">
         @csrf
-
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email anda" required>

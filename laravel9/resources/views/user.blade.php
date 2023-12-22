@@ -58,7 +58,7 @@
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->password }}</td>
+                <td>{{ $user->hidden_password }}</td>
                 <td>
                     {{-- <a href="#" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a> --}}
                     {{-- <a href="#" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a> --}}

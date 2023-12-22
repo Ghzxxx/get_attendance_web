@@ -16,4 +16,10 @@ class AdminUser extends Model
         'email',
         'password',
     ];
+
+    public function getHiddenPasswordAttribute()
+    {
+        return str_repeat('*', strlen($this->attributes['password']));
+    }
+
 }

@@ -29,7 +29,7 @@
         <h2>Absensi</h2>
       </div>
       <div class="user--info">
-        <img src="/img/user.png" alt="">
+        <h5 class="text-white">Admin</h5>
       </div>
     </div>
 

@@ -23,13 +23,17 @@
       <h2>Login</h2>
 
       <div class="card-body">
-        @if(session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
+        @if(session('success'))
+          <div class="alert alert-success">
+            {{ session('success') }}
+          </div>
+        @elseif(session('error'))
+          <div class="alert alert-danger">
+            {{ session('error') }}
+          </div>
         @endif
 
-      <form action="dashboard" method="POST">
+      <form action="" method="POST">
         @csrf
         <div class="form-group">
           <label for="email">Email</label>
@@ -40,7 +44,7 @@
           <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password anda" required>
         </div>
         <div class="centered-btn">
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary form-control">Login</button>
         </div>
       </form>
     </div>

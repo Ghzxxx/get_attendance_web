@@ -17,12 +17,12 @@
       <span>Absen</span>
     </a>
   </li>
-  <li>
+  {{-- <li>
     <a href="/user" onclick="activateMenu(this)">
       <i class="fas fa-user"></i>
       <span>Users</span>
     </a>
-  </li>
+  </li> --}}
   <li class="logout" onclick="activateMenu(this)">
     <a href="/logout">
       <i class="fas fa-sign-out-alt"></i>

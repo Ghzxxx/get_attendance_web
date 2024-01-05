@@ -60,17 +60,6 @@
           <span class="card--detail">Peserta Magang</span>
         </div>
 
-        {{-- <div class="payment--card dark-blue">
-          <div class="card--header">
-            <div class="amount">
-              <span class="title">Admin</span>
-              <span class="amount--value">2 Orang</span>
-            </div>
-            <i class="fas fa-user icon"></i>
-          </div>
-          <span class="card--detail">Administrator</span>
-        </div> --}}
-
         <div class="payment--card">
           <div class="card--header">
             <div class="amount">
@@ -84,37 +73,46 @@
       </div>
     </div>
 
+    @if(isset($absensiPesertaMagang))
+    
     {{-- Table Content --}}
     <div class="tabular--wrapper">
-      <h3 class="main--title">Peserta magang</h3>
+      <h3 class="main--title">Absensi magang</h3>
       <div class="table-container">
         <table>
           <thead>
-            <tr>
-              <th>No</th>
-              <th>Nama</th>
-              <th>Asal Sekolah</th>
-              <th>Foto</th>
-              <th>Waktu</th>
-              <th>Action</th>
-            </tr>
+             <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Asal Sekolah</th>
+                <th>Foto</th>
+                <th>Waktu</th>
+                <th>Action</th>
+             </tr>
           </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Bagus Daffa Firmansyah</td>
-                <td>Politeknik Negeri Jember</td>
+          <tbody>
+            @foreach($absensiPesertaMagang as $absen)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $absen->nama }}</td>
+                <td>{{ $absen->asal }}</td>
+                <td><img src="{{ $absen->foto }}" alt="{{ $absen->nama }}" width="80" class="rounded"></td>
+                <td>{{ \Carbon\Carbon::parse($absen->created_at)->format('H:i:s') }}</td>
                 <td>
-                  <img src="/img/foto.jpg" alt="Logo" width="80" class="rounded">
+                    @if(\Carbon\Carbon::parse($absen->created_at)->format('H:i') > '08:00')
+                        <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
+                    @else
+                        <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
+                    @endif
                 </td>
-                <td>08.01 WIB</td>
-                <td><button>Terlambat</button></td>
-              </tr>
-            </tbody>
-          </table>
+            </tr>
+            @endforeach
+        </tbody>
+       </table>
           <a href="/absen">Detail <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
+    @endif
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

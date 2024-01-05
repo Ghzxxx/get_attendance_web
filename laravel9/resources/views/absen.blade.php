@@ -46,43 +46,35 @@
       <div class="table-container">
         <table>
           <thead>
-            <tr>
-              <th>No</th>
-              <th>Name</th>
-              <th>Asal Sekolah</th>
-              <th>Foto</th>
-              <th>Waktu</th>
-              <th>Action</th>
-            </tr>
+              <tr>
+                  <th>No</th>
+                  <th>Nama</th>
+                  <th>Asal Sekolah</th>
+                  <th>Foto</th>
+                  <th>Waktu</th>
+                  <th>Action</th>
+              </tr>
           </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Bagus Daffa Firmansyah</td>
-                <td>Politeknik Negeri Jember</td>
+          <tbody>
+            @foreach($absensiPesertaMagang as $absen)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $absen->nama }}</td>
+                <td>{{ $absen->asal }}</td>
+                <td><img src="{{ $absen->foto }}" alt="{{ $absen->nama }}" width="80" class="rounded"></td>
+                <td>{{ \Carbon\Carbon::parse($absen->created_at)->format('H:i:s') }}</td>
                 <td>
-                  <img src="/img/foto.jpg" alt="Logo" width="80" class="rounded">
+                    @if(\Carbon\Carbon::parse($absen->created_at)->format('H:i') > '08:00')
+                        <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
+                    @else
+                        <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
+                    @endif
                 </td>
-                <td>08.00 WIB</td>
-                <td>
-                    <a href="#" class="btn btn-success text-white"> <i class="fas fa-check"></i></a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>2</td>
-                <td>Bagus Daffa Firmansyah</td>
-                <td>Politeknik Negeri Jember</td>
-                <td>
-                  <img src="/img/foto.jpg" alt="Logo" width="80" class="rounded">
-                </td>
-                <td>08.01 WIB</td>
-                <td>
-                    <a href="#" class="btn btn-danger"> <i class="fas fa-xmark"></i></a>
-                </td>
-              </tr>
-            </tbody>
-        </table>
+            </tr>
+            @endforeach
+        </tbody>
+      </table>
+      
       </div>
     </div>
   </div>

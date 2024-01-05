@@ -314,11 +314,11 @@ tr:nth-child(even) {
     background: #fff;
 }
 
-.table-container button {
+/* .table-container button {
     color: red;
     background: none;
     cursor: pointer;
-}
+} */
 
 .tabular--wrapper a {
     display: block;

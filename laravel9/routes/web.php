@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsensiPesertaController;
 use App\Http\Controllers\DataPeserta;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRCodeController;
@@ -34,9 +35,7 @@ Route::put('/peserta/{id}', [DataPeserta::class, 'update'])->middleware('auth');
 Route::get('/peserta-delete/{id}', [DataPeserta::class, 'delete'])->middleware('auth');
 Route::delete('/peserta-destroy/{id}', [DataPeserta::class, 'destroy'])->middleware('auth');
 
-Route::get('/absen', function () {
-    return view('absen');
-});
+Route::get('/absen', [AbsensiPesertaController::class, 'index']);
 
 //Route::get('/generate-qrcode', 'App\Http\Controllers\QRCodeController@generateQRCode');
 Route::get('/qrcode', [QRCodeController::class, 'show'])->name('qrcode.generate')->middleware('auth');

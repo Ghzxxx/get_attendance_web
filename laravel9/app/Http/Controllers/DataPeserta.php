@@ -12,7 +12,7 @@ class DataPeserta extends Controller
 {
     public function index()
     {
-        $pesertaMagangData = PesertaMagang::all();
+        $pesertaMagangData = PesertaMagang::orderBy('nama', 'asc')->paginate(10);
         return view('peserta.index', ['pesertaMagangData' => $pesertaMagangData]);
     }
 

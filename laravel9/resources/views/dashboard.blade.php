@@ -60,7 +60,7 @@
           <span class="card--detail">Peserta Magang</span>
         </div>
 
-        <div class="payment--card dark-blue">
+        {{-- <div class="payment--card dark-blue">
           <div class="card--header">
             <div class="amount">
               <span class="title">Admin</span>
@@ -69,7 +69,7 @@
             <i class="fas fa-user icon"></i>
           </div>
           <span class="card--detail">Administrator</span>
-        </div>
+        </div> --}}
 
         <div class="payment--card">
           <div class="card--header">
@@ -92,7 +92,7 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Name</th>
+              <th>Nama</th>
               <th>Asal Sekolah</th>
               <th>Foto</th>
               <th>Waktu</th>

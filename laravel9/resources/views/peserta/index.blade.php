@@ -64,7 +64,7 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Name</th>
+              <th>Nama</th>
               <th>Asal Sekolah</th>
               <th>Nomer Handphone</th>
               <th>Action</th>
@@ -87,6 +87,10 @@
               @endforeach
             </tbody>
         </table>
+
+        <div class="my-3">
+          {{ $pesertaMagangData->Links() }}
+        </div>
       </div>
     </div>
   </div>

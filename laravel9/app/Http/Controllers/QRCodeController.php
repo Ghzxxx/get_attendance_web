@@ -7,45 +7,55 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
-
-
 class QRCodeController extends Controller
 {
+    private $staticData;
+    private $qrCode;
+
+    public function __construct()
+    {
+        // Initialize $staticData in the constructor
+        $this->staticData = Str::random(20);
+    }
+
     public function show(Request $request)
     {
-        // You can customize the QR code data based on the request or any other logic.
-        $randomData = Str::random(20);
-
-        // Generate QR code with the random data
-        $qrCode = QrCode::format('png')
-            // ->backgroundColor(249, 245, 235)
-            ->color(0, 0, 0)
-            ->size(500)
-            ->generate($randomData);
+        // If QR code has not been generated yet, generate it
+        if (!$this->qrCode) {
+            $this->qrCode = $this->generateQRCode($this->staticData);
+        }
 
         // If it's an API request, return the QR code data in the API response
         if ($request->is('api/*')) {
-            return response()->json(['qrCode' => base64_encode($qrCode)]);
+            return response()->json(['qrCode' => base64_encode($this->qrCode)]);
         }
 
-        // If it's a web request, render the blade view with the QR code
-        return view('qrcode.index', ['qrCode' => $qrCode]);
+        // If it's a web request, render the blade view with the stored QR code
+        return view('qrcode.index', ['qrCode' => $this->qrCode]);
     }
 
+    public function checkQRCodeValidity(Request $request)
+    {
+        // Get the value of the barcodeScanRes parameter from the query string
+        $qrCodeValue = $request->input('barcodeScanRes', '');
 
-    // public function apiShow(Request $request)
-    // {
-    //     // You can customize the QR code data based on the request or any other logic.
-    //     $randomData = Str::random(15);
+        // Compare the received QR code with the server-generated QR code
+        dd($qrCodeValue, $this->staticData);
+        $isValid = ($qrCodeValue === $this->staticData);
 
-    //     // Generate QR code with the random data
-    //     $qrCode = QrCode::size(500)
-    //         ->backgroundColor(255, 255, 255)
-    //         ->color(0, 0, 0)
-    //         ->margin(10)
-    //         ->generate($randomData);
+        // Return a JSON response with the validity status  
+        
+        return response()->json([
+            'valid' => $isValid,
+            'message' => $isValid ? 'QR code is valid' : 'QR code is not valid',
+        ]);
+    }
 
-    //     // Return the QR code data in the API response
-    //     return response()->json(['qrCode' => $qrCode]);
-    // }
+    protected function generateQRCode($data)
+    {
+        return QrCode::format('png')
+            ->color(0, 0, 0)
+            ->size(500)
+            ->generate($data);
+    }
 }

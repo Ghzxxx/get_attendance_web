@@ -41,3 +41,5 @@ Route::get('/absen', function () {
 //Route::get('/generate-qrcode', 'App\Http\Controllers\QRCodeController@generateQRCode');
 Route::get('/qrcode', [QRCodeController::class, 'show'])->name('qrcode.generate')->middleware('auth');
 
+
+

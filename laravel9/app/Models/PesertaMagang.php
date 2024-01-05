@@ -21,4 +21,10 @@ class PesertaMagang extends Model
     {
         return static::count();
     }
+
+    public function pesertaMagang()
+    {
+        return $this->belongsToMany(PesertaMagang::class, 'absensi_peserta_magang', 'mobile_data_id', 'peserta_magang_id');
+    }
+
 }

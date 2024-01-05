@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRCodeController;
+use App\Http\Controllers\MobileDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/qrcode', [QRCodeController::class, 'show']);
+// Route::get('/qrcode', [QRCodeController::class, 'show']);
+//  Route::get('/qrcode', [QRCodeController::class, 'checkQRCodeValidity']);
+ 
+ Route::get('/qrcode/generate', [QRCodeController::class, 'generateQRCode']);
+ Route::get('/qrcode/check', [QRCodeController::class, 'checkQRCodeValidity']);
+ Route::post('/store-mobile-data', [MobileDataController::class, 'store']);
+
 

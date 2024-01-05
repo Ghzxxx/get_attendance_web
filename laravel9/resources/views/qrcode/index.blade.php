@@ -31,7 +31,7 @@
             background: linear-gradient(to right, #4facfe, #00f2fe);
             background-size: 200% 100%;
             animation: gradientAnimation 10s infinite;
-            background: url("https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2018/11/dark-wallpapers.jpg")
+            background: url("https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2018/11/dark-wallpapers.jpg"  )
             no-repeat center center;
         }
 

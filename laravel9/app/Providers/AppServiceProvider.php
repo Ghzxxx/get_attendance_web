@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use App\Http\Controllers\QRCodeController;
+
 
 class AppServiceProvider extends ServiceProvider
 {

@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('mobile_data', function (Blueprint $table) {
             $table->id();
             $table->string('Foto');
+            $table->unsignedBigInteger('absensi_peserta_magang_id')->nullable();
             $table->timestamps();
             
             // Add other columns as needed
+            
 
         });
     }

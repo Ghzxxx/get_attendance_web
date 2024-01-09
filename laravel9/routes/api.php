@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\AbsensiPesertaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\MobileDataController;
+use App\Http\Controllers\Api\PesertaMagangController;
+use App\Models\AbsensiPesertaMagang;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +29,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::get('/qrcode/generate', [QRCodeController::class, 'generateQRCode']);
  Route::get('/qrcode/check', [QRCodeController::class, 'checkQRCodeValidity']);
  Route::post('/store-mobile-data', [MobileDataController::class, 'store']);
-
+ Route::get('/peserta-names', [PesertaMagangController::class, 'getNames']);
+ Route::post('/receive-data', [AbsensiPesertaController::class, 'receiveData']);
 

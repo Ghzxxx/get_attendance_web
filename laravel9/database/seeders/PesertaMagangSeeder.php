@@ -31,6 +31,56 @@ class PesertaMagangSeeder extends Seeder
                 'asal' => 'Zibabwe',
                 'nohp' => '123134123',
             ],
+            [
+                'nama' => 'ika',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+            [
+                'nama' => 'uro',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+            [
+                'nama' => 'belo',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+            [
+                'nama' => 'sese',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+            [
+                'nama' => 'cika',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+            [
+                'nama' => 'rar',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+            [
+                'nama' => 'nun',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+            [
+                'nama' => 'gaaff',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+            [
+                'nama' => 'jerr',
+                'asal' => 'Zibabwe',
+                'nohp' => '123134123',
+            ],
+
+
+
+
+
         ];
 
         foreach ($data as $item) {

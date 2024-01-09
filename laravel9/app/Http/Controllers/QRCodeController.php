@@ -25,13 +25,25 @@ class QRCodeController extends Controller
             $this->qrCode = $this->generateQRCode($this->staticData);
         }
 
-        // If it's an API request, return the QR code data in the API response
+        // If it's an API request, call the apiResponse function
         if ($request->is('api/*')) {
-            return response()->json(['qrCode' => base64_encode($this->qrCode)]);
+            return $this->apiResponse();
         }
 
-        // If it's a web request, render the blade view with the stored QR code
+        // If it's a web request, call the webView function
+        return $this->webView();
+    }
+
+    private function webView()
+    {
+        // Render the blade view with the stored QR code
         return view('qrcode.index', ['qrCode' => $this->qrCode]);
+    }
+
+    private function apiResponse()
+    {
+        // Return the QR code data in the API response
+        return response()->json(['qrCode' => base64_encode($this->qrCode)]);
     }
 
     public function checkQRCodeValidity(Request $request)
@@ -40,14 +52,12 @@ class QRCodeController extends Controller
         $qrCodeValue = $request->input('barcodeScanRes', '');
 
         // Compare the received QR code with the server-generated QR code
-        dd($qrCodeValue, $this->staticData);
         $isValid = ($qrCodeValue === $this->staticData);
 
         // Return a JSON response with the validity status  
-        
         return response()->json([
             'valid' => $isValid,
-            'message' => $isValid ? 'QR code is valid' : 'QR code is not valid',
+            'message' => $isValid ? 'QR code is valid' : 'QR code is not valid', $this->staticData,
         ]);
     }
 

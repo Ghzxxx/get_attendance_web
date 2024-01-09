@@ -31,7 +31,7 @@ class AbsensiPesertaController extends Controller
     // Retrieve the selectedData and image file from the request
     
     $imageFile = $request->file('image');
-    $selectedId = $request->input('absensi_peserta_magang_id');
+    $selectedId = $request->input('selectedId');
     $timestamp = Carbon::now();
 
     // Check if an image file was provided

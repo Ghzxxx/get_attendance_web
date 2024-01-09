@@ -33,16 +33,38 @@
       </div>
     </div>
 
-    {{-- <div class="add">
-        <a href="#" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <i class="fas fa-plus"></i> Tambah
-        </button>
-    </div> --}}
-
     {{-- Table Content --}}
     <div class="tabular--wrapper">
       <h3 class="main--title">Absen Peserta Magang</h3>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 mt-5">
+          </div>
+          <style>
+            .custom-margin {
+                margin-left: 8px;
+            }
+          </style>
+      
+          <div class="col-md-3 ml-auto">
+              <form action="{{ route('filter') }}" method="get" class="my-4">
+                  <div class="form-group">
+                      <label for="selected_date" class="form-label">Pilih Tanggal:</label>
+                      <div class="input-group">
+                          <input type="date" id="selected_date" name="selected_date" class="form-control">
+                          <div class="input-group-append">
+                              <button type="submit" class="btn btn-primary dark-blue custom-margin">Filter</button>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </div>
+
+        </div>
+      </div>
+      
+    <div class="table-container">
       <div class="table-container">
         <table>
           <thead>
@@ -72,9 +94,8 @@
                 </td>
             </tr>
             @endforeach
-        </tbody>
-      </table>
-      
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -82,5 +103,6 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -36,6 +36,7 @@ Route::get('/peserta-delete/{id}', [DataPeserta::class, 'delete'])->middleware('
 Route::delete('/peserta-destroy/{id}', [DataPeserta::class, 'destroy'])->middleware('auth');
 
 Route::get('/absen', [AbsensiPesertaController::class, 'index']);
+Route::get('/filter', [AbsensiPesertaController::class, 'filterByDate'])->name('filter')->middleware('auth');
 
 //Route::get('/generate-qrcode', 'App\Http\Controllers\QRCodeController@generateQRCode');
 Route::get('/qrcode', [QRCodeController::class, 'show'])->name('qrcode.generate')->middleware('auth');

@@ -28,9 +28,6 @@
         <span>Get Aplikasi Indonesia</span>
         <h2>Peserta Magang</h2>
       </div>
-      <div class="user--info">
-        <img src="/img/user.png" alt="">
-      </div>
     </div>
 
     {{-- Table Content --}}
@@ -49,7 +46,8 @@
         </tr>
       </table>
 
-      <a href="/peserta" class="btn btn-primary mt-2"><i class="fa-solid fa-arrow-left"></i> Back</a>
+      <a href="/peserta" class="btn btn-primary mt-2"> Kembali</a>
+      <a href="/peserta-edit/{{ $peserta->id }}}" class="btn btn-warning mt-2 text-white"> Edit</a>
     </div>
   </div>
 

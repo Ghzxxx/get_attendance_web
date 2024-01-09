@@ -81,7 +81,6 @@
                     <a href="/peserta/{{ $peserta->id }}" class="btn btn-info text-white"><i class="fas fa-eye"></i> Detail</a>
                     <a href="/peserta-edit/{{ $peserta->id }}" class="btn btn-warning text-white"><i class="fas fa-pen-to-square"></i> Edit</a>
                     <a href="/peserta-delete/{{ $peserta->id }}" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
-                    {{-- <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#konfirmasiModal"><i class="fas fa-trash"></i> Hapus</button> --}}
                 </td>
               </tr>
               @endforeach
@@ -121,7 +120,7 @@
               <input type="text" name="nohp" class="form-control" id="nohp" required>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Kembali</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Batal</button>
             <button type="submit" class="btn btn-success">Simpan</button>
           </div>
         </form>
@@ -130,37 +129,25 @@
   </div>
 </div>
 
-<!-- Modal Konfirmasi -->
-<div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fw-bold" id="konfirmasiModalLabel">Konfirmasi Hapus Data</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Apakah Anda yakin ingin menghapus data?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-danger" onclick="hapusData()">Hapus</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   <script>
-    function hapusData() {
-      // Tambahkan logika penghapusan data di sini
-      alert("Data berhasil dihapus!");
-      
-      // Tutup modal setelah penghapusan
-      $('#konfirmasiModal').modal('hide');
+    function konfirmasiHapus(pesertaId) {
+        var konfirmasi = confirm("Apakah Anda yakin ingin menghapus peserta ini?");
+    
+        if (konfirmasi) {
+            // Redirect ke halaman hapus dengan ID peserta
+            window.location.href = "/peserta-delete/" + pesertaId;
+        } else {
+            // Batal hapus
+            // Tambahkan logika atau tindakan lain sesuai kebutuhan
+        }
     }
-  </script>
+    </script>
+
+    
 </body>
 </html>

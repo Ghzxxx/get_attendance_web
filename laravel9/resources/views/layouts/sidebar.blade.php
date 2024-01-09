@@ -23,13 +23,15 @@
       <span>Users</span>
     </a>
   </li> --}}
-  <li class="logout" onclick="activateMenu(this)">
-    <a href="/logout">
-      <i class="fas fa-sign-out-alt"></i>
-      <span>Logout</span>
+  <li class="logout">
+    <a href="#" onclick="confirmLogout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
     </a>
   </li>
 </ul>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -45,4 +47,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+</script>
+
+<script>
+  function confirmLogout() {
+      Swal.fire({
+          title: 'Apakah Anda yakin ingin logout?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Ya, Logout'
+      }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = "/logout";
+          }
+      });
+  }
 </script>

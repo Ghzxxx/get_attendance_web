@@ -28,9 +28,6 @@
         <span>Get Aplikasi Indonesia</span>
         <h2>Peserta Magang</h2>
       </div>
-      <div class="user--info">
-        <img src="/img/user.png" alt="">
-      </div>
     </div>
 
     {{-- Table Content --}}
@@ -54,8 +51,8 @@
               <input type="text" class="form-control" name="nohp" id="nohp" value="{{ $peserta->nohp }}" required>
           </div>
   
-          <a href="/peserta" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
           <button type="submit" class="btn btn-success">Simpan</button>
+          <a href="/peserta" class="btn btn-primary"> Batal</a>
       </form>
     </div>
   </div>

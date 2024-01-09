@@ -28,23 +28,20 @@
         <span>Get Aplikasi Indonesia</span>
         <h2>Peserta Magang</h2>
       </div>
-      <div class="user--info">
-        <img src="/img/user.png" alt="">
-      </div>
     </div>
 
     {{-- Table Content --}}
     <div class="tabular--wrapper">
-        <h3 class="mb-3">Hapus Data Peserta Magang</h3>
+        <h4 class="mb-3 fw-bold">Hapus Data Peserta Magang</h4>
 
         <div class="mt-4">
-            <p>Apakah kamu yakin ingin menghapus data ? {{ $peserta->nama }}</p>
+            <p>Apakah kamu yakin ingin menghapus data ? <strong>{{ $peserta->nama }}</strong></p>
             <form action="/peserta-destroy/{{ $peserta->id }}" method="post" class="d-inline-block">
                 @csrf
                 @method('delete')
                 <button type="submit" class="btn btn-danger mt-2">Hapus</button>
             </form>
-            <a href="/peserta" class="btn btn-primary mt-2">Cancel</a>
+            <a href="/peserta" class="btn btn-primary mt-2">Batal</a>
         </div>
         
     </div>

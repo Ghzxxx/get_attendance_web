@@ -15,6 +15,17 @@ class AbsensiPesertaController extends Controller
         return view('absen', ['absensiPesertaMagang' => $absensiPesertaMagang]);
     }
 
+    public function filterByDate(Request $request)
+    {
+        $selectedDate = $request->input('selected_date');
+
+        // Implementasi logika untuk menyaring data berdasarkan $selectedDate
+        $filteredData = AbsensiPesertaMagang::whereDate('created_at', $selectedDate)->get();
+
+        // Pastikan variabel $filteredData tersedia di dalam view
+        return view('filter', compact('filteredData'));
+    }
+
     public function receiveData(Request $request)
 {
     // Retrieve the selectedData and image file from the request

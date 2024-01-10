@@ -53,12 +53,12 @@
           <div class="card--header">
               <div class="amount">
                   <span class="title">Terlambat</span>
-                  <span class="amount--value">{{ count($absensiPesertaMagang) }} Orang</span>
+                  <span class="amount--value">{{ $terlambatCount }} Orang</span>
               </div>
               <i class="fas fa-list icon"></i>
           </div>
           <span class="card--detail">Peserta Magang</span>
-        </div>
+        </div>      
 
         <div class="payment--card">
           <div class="card--header">
@@ -75,45 +75,46 @@
 
     @if(isset($absensiPesertaMagang))
     
-    {{-- Table Content --}}
-    <div class="tabular--wrapper">
-      <h3 class="main--title">Absensi magang</h3>
-      <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Asal Sekolah</th>
-                    <th>Foto</th>
-                    <th>Waktu</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($absensiPesertaMagang as $terlambat)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $terlambat->nama }}</td>
-                    <td>{{ $terlambat->asal }}</td>
-                    <td>
-                        <img src="{{ asset('storage/'.$terlambat->foto) }}" alt="" width="50">
-                    </td>
-                    <td>{{ \Carbon\Carbon::parse($terlambat->created_at)->format('H:i:s') }}</td>
-                    <td>
-                      @if(\Carbon\Carbon::parse($terlambat->created_at)->format('H:i') > '08:00')
-                        <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
-                      @else
-                        <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
-                      @endif
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-          <a href="/absen">Detail <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
+        {{-- Table Content --}}
+        <div class="tabular--wrapper">
+          <h3 class="main--title">Absensi magang</h3>
+          <div class="table-container">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Asal Sekolah</th>
+                        <th>Foto</th>
+                        <th>Waktu</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($absensiPesertaMagang as $terlambat)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $terlambat->nama }}</td>
+                        <td>{{ $terlambat->asal }}</td>
+                        <td>
+                            <img src="{{ asset('storage/'.$terlambat->foto) }}" alt="" width="50">
+                        </td>
+                        <td>{{ \Carbon\Carbon::parse($terlambat->created_at)->format('H:i:s') }}</td>
+                        <td>
+                          @if(\Carbon\Carbon::parse($terlambat->created_at)->format('H:i') > '08:00')
+                            <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
+                          @else
+                            <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
+                          @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+              <a href="/absen">Detail <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
     @endif
   </div>
 

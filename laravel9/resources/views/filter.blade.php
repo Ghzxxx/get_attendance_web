@@ -86,14 +86,18 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->nama }}</td>
                         <td>{{ $data->asal }}</td>
-                        <td><img src="{{ $data->foto }}" alt="{{ $data->nama }}" width="80" class="rounded"></td>
-                        <td>{{ \Carbon\Carbon::parse($data->created_at)->format('H:i:s') }}</td>
                         <td>
-                            @if(\Carbon\Carbon::parse($data->created_at)->format('H:i') > '08:00')
-                                <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
-                            @else
-                                <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
-                            @endif
+                          <img src="{{ asset('storage/'.$data->foto) }}" alt="" class="rounded" width="50">
+                        </td>
+                        <td>
+                          {{ \Carbon\Carbon::parse($data->created_at)->format('H:i:s') }}
+                        </td>
+                        <td>
+                          @if(\Carbon\Carbon::parse($data->created_at)->format('H:i') > '08:00')
+                          <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
+                        @else
+                          <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
+                        @endif
                         </td>
                     </tr>
                     @endforeach

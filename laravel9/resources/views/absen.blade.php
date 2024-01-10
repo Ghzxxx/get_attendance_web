@@ -84,7 +84,7 @@
                   <td>{{ $absen->nama }}</td>
                   <td>{{ $absen->asal }}</td>
                   <td>
-                      <img src="{{ asset('storage/'.$absen->foto) }}" alt="" width="50">
+                      <img src="{{ asset('storage/'.$absen->foto) }}" alt="" class="rounded" width="50">
                   </td>
                   <td>{{ \Carbon\Carbon::parse($absen->created_at)->format('H:i:s') }}</td>
                   <td>

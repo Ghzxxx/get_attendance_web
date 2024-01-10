@@ -86,4 +86,17 @@ class DataPeserta extends Controller
 
         return redirect('/peserta');
     }
+
+    public function deletedPeserta()
+    {
+        $deletedPeserta = PesertaMagang::onlyTrashed()->get();
+        return view('peserta-deleted-list', ['peserta' => $deletedPeserta]);
+    }
+
+    public function restore($id)
+    {
+        $deletedPeserta = PesertaMagang::withTrashed()->where('id', $id)->restore();
+
+        return redirect('/peserta');
+    }
 }

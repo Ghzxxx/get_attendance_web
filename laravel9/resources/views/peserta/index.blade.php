@@ -33,11 +33,13 @@
       </div>
     </div>
 
-    <div class="add">
+    <div class="add d-flex justify-content-between">
         {{-- <a href="/peserta-add" class="btn btn-primary border-0"><i class="fas fa-plus"></i> Add Data</a> --}}
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="fas fa-plus"></i> Tambah
         </button>
+
+        <a href="peserta-deleted-list" class="btn btn-info text-white"><i class="fa-solid fa-trash-arrow-up"></i> Deleted</a>
     </div>
 
     @if ($errors->any())

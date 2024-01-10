@@ -34,6 +34,8 @@ Route::get('/peserta-edit/{id}', [DataPeserta::class, 'edit'])->middleware('auth
 Route::put('/peserta/{id}', [DataPeserta::class, 'update'])->middleware('auth');
 Route::get('/peserta-delete/{id}', [DataPeserta::class, 'delete'])->middleware('auth');
 Route::delete('/peserta-destroy/{id}', [DataPeserta::class, 'destroy'])->middleware('auth');
+Route::get('/peserta-deleted-list', [DataPeserta::class, 'deletedPeserta'])->middleware('auth');
+Route::get('/peserta/{id}/restore', [DataPeserta::class, 'restore'])->middleware('auth');
 
 Route::get('/absen', [AbsensiPesertaController::class, 'index']);
 Route::get('/filter', [AbsensiPesertaController::class, 'filterByDate'])->name('filter')->middleware('auth');

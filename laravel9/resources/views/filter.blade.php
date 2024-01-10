@@ -35,6 +35,8 @@
 
     {{-- Table Content --}}
     <div class="tabular--wrapper">
+      <h3 class="main--title">Absen Peserta Magang</h3>
+
       <div class="container">
         <div class="row">
           <div class="col-md-9 mt-5">

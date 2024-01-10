@@ -77,11 +77,16 @@
 <body>
     <div class="container">
         <div class="card">
-            <img src="data:image/png;base64, {!! base64_encode($qrCode) !!} " alt="QR Code">
-
+            @if($qrCode)
+                <img src="data:image/png;base64, {!! base64_encode($qrCode) !!}" alt="QR Code">
+            @else
+                <p>No QR Code available.</p>
+            @endif
+    
             <div class="btn-group">
                 <a href="/dashboard" class="btn btn-primary">Kembali</a>
-                <a href="/qrcode" class="btn btn-success">Reload</a>
+                <a href="{{ route('qrcode.show') }}" class="btn btn-success">Reload</a>
+                
             </div>
         </div>
     </div>

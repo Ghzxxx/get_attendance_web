@@ -41,7 +41,11 @@ Route::get('/absen', [AbsensiPesertaController::class, 'index']);
 Route::get('/filter', [AbsensiPesertaController::class, 'filterByDate'])->name('filter')->middleware('auth');
 
 //Route::get('/generate-qrcode', 'App\Http\Controllers\QRCodeController@generateQRCode');
-Route::get('/qrcode', [QRCodeController::class, 'show'])->name('qrcode.generate')->middleware('auth');
+//Route::get('/qrcode', [QRCodeController::class, 'show'])->name('qrcode.generate')->middleware('auth');
+//Route::get('/generatenewQRCode', [QRCodeController::class, 'generatenewQRCode'])->middleware('auth');
+Route::get('/qrcode', [QRCodeController::class, 'show'])->name('qrcode.show')->middleware('auth');
+Route::get('/generatenewqrcode', [QRCodeController::class, 'generateNewQRCodeAndRedirect'])->name('qrcode.generate.manual')->middleware('auth');
+
 
 
 

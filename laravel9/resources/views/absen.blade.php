@@ -78,22 +78,24 @@
               </tr>
           </thead>
           <tbody>
-            @foreach($absensiPesertaMagang as $absen)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $absen->nama }}</td>
-                <td>{{ $absen->asal }}</td>
-                <td><img src="{{ $absen->foto }}" alt="{{ $absen->nama }}" width="80" class="rounded"></td>
-                <td>{{ \Carbon\Carbon::parse($absen->created_at)->format('H:i:s') }}</td>
-                <td>
-                    @if(\Carbon\Carbon::parse($absen->created_at)->format('H:i') > '08:00')
-                        <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
-                    @else
-                        <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
-                    @endif
-                </td>
-            </tr>
-            @endforeach
+              @foreach($absensiPesertaMagang as $absen)
+              <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $absen->nama }}</td>
+                  <td>{{ $absen->asal }}</td>
+                  <td>
+                      <img src="{{ asset('storage/'.$absen->foto) }}" alt="" width="50">
+                  </td>
+                  <td>{{ \Carbon\Carbon::parse($absen->created_at)->format('H:i:s') }}</td>
+                  <td>
+                      @if(\Carbon\Carbon::parse($absen->created_at)->format('H:i') > '08:00')
+                          <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
+                      @else
+                          <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
+                      @endif
+                  </td>
+              </tr>
+              @endforeach
           </tbody>
         </table>
       </div>

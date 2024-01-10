@@ -9,4 +9,11 @@ class AbsensiPesertaMagang extends Model
 {
     use HasFactory;
     protected $table = 'absensi_peserta_magang';
+
+    protected $fillable = [
+        'nama',
+        'asal',
+        'foto',
+        'created_at',
+    ];
 }

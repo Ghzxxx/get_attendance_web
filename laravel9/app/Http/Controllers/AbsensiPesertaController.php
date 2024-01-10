@@ -11,7 +11,7 @@ class AbsensiPesertaController extends Controller
 {
     public function index()
     {
-        $absensiPesertaMagang = AbsensiPesertaMagang::all();
+        $absensiPesertaMagang = AbsensiPesertaMagang::orderBy('created_at', 'desc')->get();
         return view('absen', ['absensiPesertaMagang' => $absensiPesertaMagang]);
     }
 
@@ -19,45 +19,33 @@ class AbsensiPesertaController extends Controller
     {
         $selectedDate = $request->input('selected_date');
 
-        // Implementasi logika untuk menyaring data berdasarkan $selectedDate
         $filteredData = AbsensiPesertaMagang::whereDate('created_at', $selectedDate)->get();
 
-        // Pastikan variabel $filteredData tersedia di dalam view
         return view('filter', compact('filteredData'));
     }
 
     public function receiveData(Request $request)
-{
-    // Retrieve the selectedData and image file from the request
+    {
     
-    $imageFile = $request->file('image');
-    $selectedId = $request->input('selectedId');
-    $timestamp = Carbon::now();
+        $imageFile = $request->file('image');
+        $selectedId = $request->input('selectedId');
+        $timestamp = Carbon::now();
 
-    // Check if an image file was provided
-    if ($imageFile) {
-        // Your logic to process the received data with the image
-        $timestamp = now();
-        $imagePath = $imageFile->storeAs('images', 'image_' . $timestamp->format('YmdHis') . '.jpg');
+        if ($imageFile) {
+            $timestamp = now();
+            // $imagePath = $imageFile->storeAs('images', 'image_' . $timestamp->format('YmdHis') . '.jpg');
+            $imagePath = $imageFile->storeAs('images', 'image_' . $timestamp->format('YmdHis') . '.jpg');
 
-        // Continue with your logic using $imagePath
+            $mobileData = new MobileData();
+            $mobileData->Foto = $imagePath;
+            $mobileData->absensi_peserta_magang_id = $selectedId;
+            $mobileData->save();
+        } else {
+            return response()->json(['message' => 'Data received successfully without image']);
+        }
 
-        // Create a new MobileData instance and save it to the database
-        $mobileData = new MobileData();
-        //$mobileData->id = $selectedId; // Assuming 'selected_id' is the column for selectedId
-        $mobileData->Foto = $imagePath; // Assuming 'Foto' is the column for the image path
-        //$mobileData->timestamp = $timestamp;
-        $mobileData->absensi_peserta_magang_id = $selectedId;
-        $mobileData->save();
-    } else {
-        // Handle the case where no image file was provided
-        // You can still process other data or return an error response
-        return response()->json(['message' => 'Data received successfully without image']);
+        return response()->json(['message' => 'Data received successfully with image']);
     }
-
-    // Return a response (optional)
-    return response()->json(['message' => 'Data received successfully with image']);
-}
 
 
 

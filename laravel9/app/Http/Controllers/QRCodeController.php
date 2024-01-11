@@ -2,92 +2,79 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\QRCode; // Assuming you have a QRCode model
 use Illuminate\Support\Str;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Routing\Redirector;
-use App\Services\RandomStringService;
+use SimpleSoftwareIO\QrCode\Facades\QrCode as QRCodeGenerator;
 
 class QRCodeController extends Controller
 {
-    private $staticData;
-    private $qrCode;
-    private $randomStringService;
-
-    public function __construct(RandomStringService $randomStringService)
+    public function generateAndSaveRandomString()
     {
-        $this->randomStringService = $randomStringService;
+        $randomString = Str::random(25); // Change the length as needed
+
+        // Save the random string to the database
+        $qrCode = new QRCode();
+        $qrCode->random_string = $randomString;
+        $qrCode->save();
+
+        return response()->json(['message' => 'Random string generated and saved successfully', 'random_string' => $randomString]);
     }
 
-    public function generateNewQRCodeAndRedirect(Redirector $redirect)
+
+    public function index()
     {
-        // Update the static data and generate a new QR code
-        $this->staticData = $this->randomStringService->generateRandomString(20);
-        $this->generateQRCode();
-
-        // Store the updated staticData in the session
-        Session::put('staticData', $this->staticData);
-
-        // Redirect back to the page where the QR code is displayed
-        return $redirect->route('qrcode.show');
+        return view('qrcode.index');
     }
 
-    public function show(Request $request)
+    public function generateQRCode()
     {
-        // Retrieve staticData from the session or initialize it
-        $this->staticData = Session::get('staticData', $this->randomStringService->generateRandomString(20));
-
-        // Generate the QR code based on the current static data
-        $this->generateQRCode();
-
-        // Store the updated staticData in the session
-        Session::put('staticData', $this->staticData);
-
-        // Render the blade view with the stored QR code
-        return view('qrcode.index', ['qrCode' => $this->qrCode]);
-    }
-
-    private function generateQRCode()
-    {
-        // Generate a new QR code based on the updated static data
-        $this->qrCode = QrCode::format('png')
+        // Generate and save a new random string
+        $this->generateAndSaveRandomString();
+    
+        // Get the latest random string from the database
+        $latestRandomString = QRCode::latest()->value('random_string');
+    
+        // Check if a random string is available
+        if (!$latestRandomString) {
+            return response()->json(['message' => 'No random string found in the database.'], 404);
+        }
+    
+        // Generate a QR code with custom formatting
+        $qrCode = QRCodeGenerator::format('png')
             ->color(0, 0, 0)
             ->size(500)
-            ->generate($this->staticData);
+            ->generate($latestRandomString);
+    
+        // You can return the QR code image, or any other response as needed
+        return view('qrcode.index', ['qrCode' => $qrCode]);
     }
 
-    // public function apiResponse()
-    // {
-    //     // Retrieve staticData from the session or initialize it
-    //     $this->staticData = Session::get('staticData', $this->randomStringService->generateRandomString(20));
 
-    //     // Generate a new QR code if it hasn't been generated
-    //     if (!$this->qrCode) {
-    //         $this->generateQRCode();
-    //     }
 
-    //     // Return the QR code data along with the current staticData in the API response
-    //     return response()->json([
-    //         'qrCode' => base64_encode($this->qrCode),
-    //         'staticData' => $this->staticData,
-    //     ]);
-    // }
-
-    public function checkQRCodeValidity(Request $request)
+    public function validateQRCodeApi(Request $request)
     {
-        // Get the value of the barcodeScanRes parameter from the query string
-        $qrCodeValue = $request->input('barcodeScanRes', '');
+        // Get the latest random string from the database
+        $latestRandomString = QRCode::latest()->value('random_string');
 
-        // Compare the received QR code with the server-generated QR code
-        $isValid = ($qrCodeValue === $this->staticData);
+        // Check if a random string is available
+        if (!$latestRandomString) {
+            return response()->json(['message' => 'No random string found in the database.'], 404);
+        }
 
-        // Return a JSON response with the validity status
-        return response()->json([
-            'valid' => $isValid,
-            'message' => $isValid ? 'QR code is valid' : 'QR code is not valid',
-            'staticData' => $this->staticData,
-        ]);
+        // Get the scanned QR code value from the mobile API
+        $scannedQrCodeValue = $request->input('barcodeScanRes');
+
+        // Compare the scanned value with the latest random string
+        if ($latestRandomString === $scannedQrCodeValue) {
+            // Validation successful
+            return response()->json(['status' => 'success']);
+        } else {
+            // Validation failed
+            return response()->json(['status' => 'error']);
+        }
     }
+
+
+
 }

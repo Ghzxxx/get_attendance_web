@@ -26,6 +26,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
+
 Route::get('/peserta', [DataPeserta::class, 'index'])->name('index')->middleware('auth');
 Route::get('/peserta/{id}', [DataPeserta::class, 'show'])->middleware('auth');
 Route::get('/peserta-add', [DataPeserta::class, 'create'])->middleware('auth');
@@ -37,15 +38,12 @@ Route::delete('/peserta-destroy/{id}', [DataPeserta::class, 'destroy'])->middlew
 Route::get('/peserta-deleted-list', [DataPeserta::class, 'deletedPeserta'])->middleware('auth');
 Route::get('/peserta/{id}/restore', [DataPeserta::class, 'restore'])->middleware('auth');
 
+
 Route::get('/absen', [AbsensiPesertaController::class, 'index']);
 Route::get('/filter', [AbsensiPesertaController::class, 'filterByDate'])->name('filter')->middleware('auth');
 
-//Route::get('/generate-qrcode', 'App\Http\Controllers\QRCodeController@generateQRCode');
-//Route::get('/qrcode', [QRCodeController::class, 'show'])->name('qrcode.generate')->middleware('auth');
-//Route::get('/generatenewQRCode', [QRCodeController::class, 'generatenewQRCode'])->middleware('auth');
-Route::get('/qrcode', [QRCodeController::class, 'show'])->name('qrcode.show')->middleware('auth');
-Route::get('/generatenewqrcode', [QRCodeController::class, 'generateNewQRCodeAndRedirect'])->name('qrcode.generate.manual')->middleware('auth');
 
-
+Route::match(['get', 'post'], '/generate-qrcode', [QRCodeController::class, 'generateQRCode'])->name('generate.qrcode')->middleware('auth');
+Route::get('/qrcode', [QRCodeController::class, 'index'])->middleware('auth');
 
 

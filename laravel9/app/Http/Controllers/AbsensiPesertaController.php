@@ -34,7 +34,7 @@ class AbsensiPesertaController extends Controller
         if ($imageFile) {
             $timestamp = now();
             // $imagePath = $imageFile->storeAs('images', 'image_' . $timestamp->format('YmdHis') . '.jpg');
-            $imagePath = $imageFile->storeAs('images', 'image_' . $timestamp->format('YmdHis') . '.jpg,png,jpeg,gif');
+            $imagePath = $imageFile->storeAs('images', 'image_' . $timestamp->format('YmdHis') . '.jpg, .png, .jpeg, .gif');
 
             $mobileData = new MobileData();
             $mobileData->Foto = $imagePath;

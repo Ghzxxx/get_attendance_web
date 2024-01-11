@@ -77,21 +77,47 @@
 <body>
     <div class="container">
         <div class="card">
-            @if($qrCode)
-                <img src="data:image/png;base64, {!! base64_encode($qrCode) !!}" alt="QR Code">
-            @else
-                <p>No QR Code available.</p>
-            @endif
+            @isset($qrCode)
+            <img src="data:image/png;base64,{{ base64_encode($qrCode) }}" alt="QR Code">
+    @endisset
     
-            <div class="btn-group">
-                <a href="/dashboard" class="btn btn-primary">Kembali</a>
-                <a href="{{ route('qrcode.show') }}" class="btn btn-success">Reload</a>
-                
+            <div class="btn-group d-flex justify-content-center">
+                <form action="{{ route('generate.qrcode') }}" method="post">
+                    <div class="clock-container">
+                        <h1 id="clock" class="mb-4"></h1>
+                    </div>
+                    <div class="mb-3">
+                        <a href="/dashboard" class="btn btn-primary">Kembali</a>
+                        @csrf
+                        <button type="submit" class="btn btn-success">Generate QR Code</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+
+            const formattedTime = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = formattedTime;
+
+            // Update current time in the HTML
+            document.getElementById('current-time').textContent = formattedTime;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
+        // Initial update
+        updateClock();
+    </script>
 </body>
 </html>

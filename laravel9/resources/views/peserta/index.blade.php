@@ -60,7 +60,7 @@
 
     {{-- Table Content --}}
     <div class="tabular--wrapper">
-      <h3 class="main--title">Data Peserta Magang</h3>
+      <h3 class="main--title mb-3">Data Peserta Magang</h3>
       <div class="table-container">
         <table>
           <thead>
@@ -141,11 +141,9 @@
         var konfirmasi = confirm("Apakah Anda yakin ingin menghapus peserta ini?");
     
         if (konfirmasi) {
-            // Redirect ke halaman hapus dengan ID peserta
             window.location.href = "/peserta-delete/" + pesertaId;
         } else {
-            // Batal hapus
-            // Tambahkan logika atau tindakan lain sesuai kebutuhan
+            
         }
     }
     </script>

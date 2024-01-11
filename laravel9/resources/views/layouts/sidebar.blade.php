@@ -35,10 +35,8 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // Menentukan route saat ini dari URL
     var currentRoute = window.location.pathname;
 
-    // Menambahkan kelas "active" ke elemen menu yang sesuai dengan route saat ini
     var menuItems = document.querySelectorAll('.menu a');
     menuItems.forEach(function (menuItem) {
         var menuItemRoute = menuItem.getAttribute('href');

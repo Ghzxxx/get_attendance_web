@@ -36,13 +36,13 @@
 
     {{-- Card Content --}}
     <div class="card--container">
-      <h3 class="main--title">Today data</h3>
+      <h3 class="main--title" style="font-size: 22px">Today data</h3>
       <div class="card--wrapper">
         <div class="payment--card dark-green">
           <div class="card--header">
             <div class="amount">
               <span class="title">User</span>
-              <span class="amount--value">{{ $productCount }} Orang</span>
+              <span class="amount--value">{{ $pesertaCount }} Orang</span>
             </div>
             <i class="fas fa-users icon"></i>
           </div>
@@ -52,34 +52,32 @@
         <div class="payment--card dark-red">
           <div class="card--header">
               <div class="amount">
-                  <span class="title">Terlambat</span>
+                  <span class="title">User</span>
                   <span class="amount--value">{{ $terlambatCount }} Orang</span>
               </div>
-              <i class="fas fa-list icon"></i>
+              <i class="fas fa-users icon"></i>
           </div>
-          <span class="card--detail">Peserta Magang</span>
+          <span class="card--detail">Terlambat</span>
         </div>      
 
         <div class="payment--card">
           <div class="card--header">
             <div class="amount">
-              <span class="title"></span>
-              <span class="amount--value"></span>
+              <span class="title">Admin</span>
+              <span class="amount--value">QR Code</span>
             </div>
             <a href="/qrcode" class="btn btn-emphasis"><i class="fas fa-qrcode icon"></i></a>
           </div>
-          <span class="card--detail">QR Code</span>
+          <span class="card--detail">Administrator</span>
         </div>
       </div>
     </div>
 
-    @if(isset($absensiPesertaMagang))
-    
-        {{-- Table Content --}}
-        <div class="tabular--wrapper">
-          <h3 class="main--title">Absensi magang</h3>
-          <div class="table-container">
-            
+    @if(isset($absensiPesertaMagang) && count($absensiPesertaMagang) > 0)
+    {{-- Table Content --}}
+    <div class="tabular--wrapper">
+        <h3 class="main--title" style="font-size: 22px">Absensi magang</h3>
+        <div class="table-container">
             <table>
                 <thead>
                     <tr>
@@ -92,30 +90,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($absensiPesertaMagang as $terlambat)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $terlambat->nama }}</td>
-                        <td>{{ $terlambat->asal }}</td>
-                        <td>
-                            <img src="{{ asset('storage/'.$terlambat->foto) }}" alt="" width="50">
-                        </td>
-                        <td>{{ \Carbon\Carbon::parse($terlambat->created_at)->format('H:i:s') }}</td>
-                        <td>
-                          @if(\Carbon\Carbon::parse($terlambat->created_at)->format('H:i') > '08:00')
-                            <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
-                          @else
-                            <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
-                          @endif
-                        </td>
-                    </tr>
+                    @foreach($absensiPesertaMagang as $data)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $data->nama }}</td>
+                            <td>{{ $data->asal }}</td>
+                            <td>
+                                <img src="{{ asset('storage/'.$data->foto) }}" alt="" width="90" class="rounded">
+                            </td>
+                            <td>{{ \Carbon\Carbon::parse($data->created_at)->format('H:i:s') }}</td>
+                            <td>
+                                @if(\Carbon\Carbon::parse($data->created_at)->format('H:i') > '08:00')
+                                    <button class="btn btn-danger fw-bold"><i class="fas fa-xmark"></i> Terlambat</button>
+                                @else
+                                    <button class="btn btn-success fw-bold"><i class="fas fa-check"></i> Tepat Waktu</button>
+                                @endif
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
-              <a href="/absen">Detail <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
+            <a href="/absen" class="dahsboard-link">Detail <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-    @endif
+    </div>
+@else
+    <p>Tidak ada data absensi untuk ditampilkan.</p>
+@endif
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

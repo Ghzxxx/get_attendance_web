@@ -13,15 +13,23 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $productCount = PesertaMagang::getTotalCount();
-        $admin = User::all();
-        $absensiPesertaMagang = AbsensiPesertaMagang::paginate(5);
+        // Menghitung jumlah peserta magang
+        $pesertaCount = PesertaMagang::count();
 
-        $terlambatCount = AbsensiPesertaMagang::where(DB::raw("TIME(created_at) > '08:00'"))->count();
+        // Mengambil data terlambat
+        $terlambatData = AbsensiPesertaMagang::whereTime('created_at', '>', '08:00:00')
+    ->whereDate('created_at', now()->toDateString())
+    ->get();
+
+        // Count the number of records
+        $terlambatCount = $terlambatData->count();
+
+        // Mengambil semua data absensi
+        $absensiPesertaMagang = AbsensiPesertaMagang::latest('created_at')->take(5)->get();
 
         $absensiPesertaMagang = $absensiPesertaMagang->sortByDesc('created_at');
 
-        return view('dashboard', compact('productCount', 'absensiPesertaMagang', 'terlambatCount'));
+        return view('dashboard', compact('pesertaCount', 'absensiPesertaMagang', 'terlambatData', 'terlambatCount'));
     }
 
 }

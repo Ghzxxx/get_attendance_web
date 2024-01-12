@@ -71,7 +71,7 @@ class QRCodeController extends Controller
             return response()->json(['status' => 'success']);
         } else {
             // Validation failed
-            return response()->json(['status' => 'error', 'message' => 'QR Code Anda Salah!' ]);
+            return response()->json(['status' => 'error', 'message' => 'QR Code Anda Salah!!' ]);
         }
     }
 
